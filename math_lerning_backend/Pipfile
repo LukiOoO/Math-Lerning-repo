@@ -7,8 +7,18 @@ name = "pypi"
 django = "*"
 autopep8 = "*"
 django-debug-toolbar = "*"
+mysqlclient = "*"
+djangorestframework = "*"
+djoser = "*"
+djangorestframework-simplejwt = "*"
+pillow = "*"
+djangorestframework-jwt = "*"
+whitenoise = "*"
+waitress = "*"
 
 [dev-packages]
+pytest = "*"
+pytest-django = "*"
 
 [requires]
 python_version = "3.10"

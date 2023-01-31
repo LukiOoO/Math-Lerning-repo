@@ -19,8 +19,22 @@ import debug_toolbar
 from django.conf import settings
 from django.conf.urls.static import static
 
+admin.site.site_header = 'Math Learning Admin'
+admin.site.index_title = 'Admin'
+
+handler404 = 'home.views.custom_404'
+
 urlpatterns = [
-    path('__debug__/', include('debug_toolbar.urls')),
     path('admin/', admin.site.urls),
-    path('home/', include('home.urls')),
-] + static(settings.STATIC_URL, document_root=settings.STATICFILES_DIRS[0])
+    path('', include('home.urls')),
+    path('score/', include('show_score.urls')),
+    path('ex/', include('math_exercises.urls')),
+    path('mathuser/', include('users.urls')),
+    path('test/', include('math_tests.urls')),
+    path('auth/', include('djoser.urls')),
+    path('auth/', include('djoser.urls.jwt')),
+    path('__debug__/', include(debug_toolbar.urls)),
+]
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL,
+                          document_root=settings.STATICFILES_DIRS)
