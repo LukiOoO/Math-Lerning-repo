@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'rest_framework',
     'rest_framework.authtoken',
+    "corsheaders",
     'djoser',
     'home',
     'math_exercises',
@@ -57,8 +58,8 @@ INTERNAL_IPS = [
 
 ]
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:8001',
-    'http://127.0.0.1:8001',
+    'http://localhost:3000',
+    'http://127.0.0.1:3000',
 ]
 
 ROOT_URLCONF = 'math_lerning_backend.urls'
@@ -123,6 +124,9 @@ STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
@@ -135,9 +139,9 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
 
     ),
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
-    ],
+    # 'DEFAULT_PERMISSION_CLASSES': [
+    #     'rest_framework.permissions.IsAuthenticated',
+    # ],
 
 
 

@@ -14,7 +14,7 @@ class AddingViewSet(ReadOnlyModelViewSet):
             a = random.randint(1, 100)
             b = random.randint(1, 100)
             result = a + b
-            return Response({'a': a, 'b': b, 'result': int(result)})
+            return Response({'a': a, 'b': b, 'result': int(result),  'operator': '+'})
         except result.DoesNotExist:
             raise HttpResponse(status=204)
 
@@ -27,7 +27,7 @@ class SubtractionViewSet(ReadOnlyModelViewSet):
             a = random.randint(1, 100)
             b = random.randint(1, 100)
             result = a - b
-            return Response({'a': a, 'b': b, 'result': int(result)})
+            return Response({'a': a, 'b': b, 'result': int(result),  'operator': '-'})
 
         except result.DoesNotExist:
             raise HttpResponse(status=204)
@@ -38,10 +38,10 @@ class MultiplicationViewSet(ReadOnlyModelViewSet):
 
     def list(self, request):
         try:
-            a = random.randint(1, 100)
-            b = random.randint(1, 100)
+            a = random.randint(1, 20)
+            b = random.randint(1, 10)
             result = a * b
-            return Response({'a': a, 'b': b, 'result': int(result)})
+            return Response({'a': a, 'b': b, 'result': int(result),  'operator': '*'})
         except result.DoesNotExist:
             raise HttpResponse(status=204)
 
@@ -57,6 +57,6 @@ class DividingViewSet(ReadOnlyModelViewSet):
                 a = random.randint(1, 100)
                 b = random.randint(1, 100)
             result = a / b
-            return Response({'a': a, 'b': b, 'result': int(result)})
+            return Response({'a': a, 'b': b, 'result': int(result),  'operator': '/'})
         except result.DoesNotExist:
             raise HttpResponse(status=204)

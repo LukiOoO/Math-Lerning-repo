@@ -4,12 +4,7 @@ from django.contrib.auth.hashers import make_password
 from django.core.validators import MinValueValidator
 from django.contrib.auth.models import Group
 
-
 # from django.contrib.auth
-
-
-# class BaseUserAdmin(BaseUserAdmin):
-#     pass
 
 
 class MathsiteUserManager(BaseUserManager):
@@ -63,6 +58,7 @@ class MathsiteUser(AbstractBaseUser):
 
     is_active = models.BooleanField(default=True)
     staff = models.BooleanField(default=False)
+
     admin = models.BooleanField(default=False)
 
     groups = models.ManyToManyField(
@@ -75,6 +71,9 @@ class MathsiteUser(AbstractBaseUser):
         self.slug = self.nickname
 
         password = make_password(self.password)
+
+        if self.score < 0:
+            self.score = 0
 
         if self.score >= 0 and self.score < 100:
             self.rating = self.Beginer

@@ -1,6 +1,10 @@
 from django.urls import path
 from . import views
+from rest_framework.routers import SimpleRouter
 
-urlpatterns = [
-    path('', views.math_test),
-]
+router = SimpleRouter()
+router.register('get-test', views.MathTest,
+                basename='get-test')
+router.register('test-result', views.TestResultView, basename='test-result')
+
+urlpatterns = router.urls

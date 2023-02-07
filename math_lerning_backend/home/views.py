@@ -7,6 +7,9 @@ from users.models import MathsiteUser
 from django.conf.urls.static import static
 from rest_framework.permissions import IsAuthenticated
 from django.shortcuts import render
+from . import models
+from . import serializers
+from django.http import Http404
 # Create your views here.
 
 
@@ -15,16 +18,12 @@ def custom_404(request, exception):
 
 
 class HomePageViewSet(ReadOnlyModelViewSet):
-    # serializer_class = MathSerializer
+    serializer_class = serializers.PictrueSerializer
 
-    # def list(self, request):
-    #     adding_viewset = AddingViewSet()
-    #     adding_instance = adding_viewset.list(request)
-    #     adding_data = adding_instance.data
-    #     serializer = MathSerializer(data=adding_data)
-    #     if serializer.is_valid():
-    #         serialized_data = serializer.data
-    #         return Response({'Adding': serialized_data})
-    #     return Response({'error': 'Invalid data'})
+    def get_queryset(self):
+        return models.Pictures.objects.filter(id=1)
 
-    permission_classes = (IsAuthenticated,)
+    def get_serializer_context(self):
+        return {'request': self.request}
+
+    # permission_classes = (IsAuthenticated,)

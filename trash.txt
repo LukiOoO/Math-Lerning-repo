@@ -79,3 +79,204 @@ create database math_learning;users_mathsiteuser
 
     
 waitress-serve --listen=*:8000 myapp.wsgi:application
+
+
+
+jak poprawnie zabezpieczyć rest api django i połączyć je z react w taki sposób żeby tylko react miał możliwośc pobierania danych z rest api 
+
+
+https://colorhunt.co/palette/03001c301e675b8fb9b6eada
+
+
+  const [gif, setGif] = useState({});
+
+  useEffect(() => {
+    fetch("http://127.0.0.1:8000/home/")
+      .then((response) => response.json())
+      .then((data) => setGif(data[0]))
+      .catch((error) => console.error(error));
+  }, []);
+
+
+            <div className="div-2bnt">
+            <button className="2bnt"></button>
+            <button className="2btn"></button>
+          </div>
+
+
+
+import React, { useState } from "react";
+import { useHistory } from "react-router-dom";
+import Joi from "joi-browser";
+
+const Register = () => {
+  const [schema] = useState({
+    nickname: Joi.string().required().email().label("Username"),
+    password: Joi.string().required().min(5).label("Password"),
+    email: Joi.string().email().required(),
+  });
+  const validate = () => {
+    const options = { abortEarly: false };
+    const { error } = Joi.validate(this.state.data, this.schema, options);
+    if (!error) return null;
+
+    const errors = {};
+    for (let item of error.details) errors[item.path[0]] = item.message;
+    return errors;
+  };
+
+  const validateProperty = ({ name, value }) => {
+    const obj = { [name]: value };
+    const schema = { [name]: this.schema[name] };
+    const { error } = Joi.validate(obj, schema);
+    return error ? error.details[0].message : null;
+  };
+  const history = useHistory();
+  const [user, setUser] = useState({
+    nickname: "",
+    password: "",
+    email: "",
+    errors: {},
+  });
+
+  const handleChange = (event) => {
+    validateProperty(event.target.name);
+    setUser({ ...user, [event.target.name]: event.target.value });
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    fetch("http://127.0.0.1:8000/auth/users/", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(user),
+    })
+      .then((res) => {
+        if (res.status === 400) {
+          const errors = { ...user.errors };
+          errors.username = "User already exists";
+          setUser({ ...user, errors });
+          return;
+        }
+        res.json();
+      })
+      .then((data) => {})
+      .catch((error) => {
+        if (error.response && error.response.status === 400) {
+          const errors = { ...user.errors };
+          errors.username = error.response.data;
+          setUser({ ...user, errors });
+        }
+      });
+  };
+
+  return (
+    <form onSubmit={handleSubmit}>
+      {user.errors.username && <p>{user.errors.username}</p>}
+      <input
+        type="text"
+        name="nickname"
+        value={user.nickname}
+        onChange={handleChange}
+        placeholder="Nickname"
+      />
+      <input
+        type="email"
+        name="email"
+        value={user.email}
+        onChange={handleChange}
+        placeholder="Email"
+      />
+      <input
+        type="password"
+        name="password"
+        value={user.password}
+        onChange={handleChange}
+        placeholder="Password"
+      />
+      <button type="submit">Create User</button>
+    </form>
+  );
+};
+export default Register;
+
+
+
+.then((res) => {
+        if (res.status === 400) {
+          setError({ ...error, login: "bad password or username" });
+          return;
+        } else if (res.status !== 400) {
+          history.push("/login");
+        }
+        res.json();
+      })
+      .then((data) => {})
+      .catch((error) => {
+        if (error.response && error.response.status === 400) {
+          setError({ ...error, username: error.response.data });
+        }
+      });
+  };
+
+
+
+  # class MathTest(viewsets.ReadOnlyModelViewSet):
+
+#     def list(self, request):
+#         try:
+#             test_list = []
+
+#             d = views.DividingViewSet()
+#             a = views.AddingViewSet()
+#             s = views.SubtractionViewSet()
+#             m = views.MultiplicationViewSet()
+#             serializer1 = serializers.MathSerializer(m.list(request).data)
+#             serializer2 = serializers.MathSerializer(a.list(request).data)
+#             serializer3 = serializers.MathSerializer(s.list(request).data)
+#             serializer4 = serializers.MathSerializer(d.list(request).data)
+#             for x in range(10):
+#                 x = random.randint(0, 3)
+#                 if x == 0:
+#                     test_list.append(serializer1.data)
+#                 elif x == 1:
+#                     test_list.append(serializer2.data)
+#                 elif x == 2:
+#                     test_list.append(serializer3.data)
+#                 elif x == 3:
+#                     test_list.append(serializer4.data)
+#             return Response({'ok': test_list})
+#         except test_list.DoesNotExist:
+#             raise HttpResponse(status=204)
+
+
+
+# class TestResultView(generics.CreateAPIView):
+    # serializer_class = MathTestSerializer
+    # permission_classes = (IsAuthenticated,)
+
+    # def post(self, request, format=None):
+
+    #     correct = request.data.get('correct', None)
+    #     mistakes = request.data.get('mistakes', None)
+    #     user_id = request.data.get('user_id', None)
+
+    #     # pobierz obiekt użytkownika z bazy danych
+    #     user = get_object_or_404(views.MathsiteUser, pk=user_id)
+
+    #     # zapisz dane o teście w bazie danych
+    #     test = models.TestModel.objects.create(
+    #         correct=correct,
+    #         mistakes=mistakes,
+    #         user=user
+    #     )
+
+    #     # zwiększ lub zmniejsz score ucznia
+    #     score = user.score + (correct - mistakes)
+    #     user.score = score
+    #     user.save()
+
+    #     # zwróć odpowiedź z potwierdzeniem
+    #     return Response({'message': 'Test został zapisany i score użytkownika został zaktualizowany.'}, status=status.HTTP_200_OK)
