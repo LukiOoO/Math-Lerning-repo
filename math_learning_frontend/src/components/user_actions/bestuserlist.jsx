@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import UserInList from "./common/userInList";
+import UserInList from "../common/userInList";
 
 function Bestuserlist(props) {
   const [data, setData] = useState([]);

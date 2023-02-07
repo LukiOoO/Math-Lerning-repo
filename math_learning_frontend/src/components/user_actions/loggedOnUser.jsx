@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 const ShowLoggedUser = () => {
   const [data, setData] = useState();
   const [error, setError] = useState();
-  const [count, setCount] = useState(0);
+
   useEffect(() => {
     const fetchData = () => {
       fetch("http://127.0.0.1:8000/mathuser/me/", {

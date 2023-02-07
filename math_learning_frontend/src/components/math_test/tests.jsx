@@ -1,11 +1,9 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React from "react";
 import { Route, Switch } from "react-router-dom";
 import { Link } from "react-router-dom";
-import MathSiteBtn from "./common/mathSiteBtn";
-import UserTest from "./common/userTest";
-import TestResult from "./common/testResult";
-import NextBtn from "./common/nextBtn";
+import UserTest from "./userTest";
+import TestResult from "./testResult";
+import MathSiteBtn from "../common/mathSiteBtn";
 
 const Test = () => {
   return (

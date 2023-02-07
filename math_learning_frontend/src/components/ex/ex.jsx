@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import MathSiteBtn from "./common/mathSiteBtn";
+import MathSiteBtn from "../common/mathSiteBtn";
 import { Link } from "react-router-dom";
 import Adding from "./adding";
 import Dividing from "./dividing";

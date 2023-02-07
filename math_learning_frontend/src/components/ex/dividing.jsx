@@ -1,5 +1,5 @@
 import React from "react";
-import MathForm from "./common/mathForm";
+import GetExService from "../../services/getExService";
 
 const Dividing = () => {
   return (
@@ -7,7 +7,7 @@ const Dividing = () => {
       <div className="dividing-container">
         <h1>Dividing Exercises:</h1>
         <div className="container">
-          <MathForm url="http://127.0.0.1:8000/ex/dividing/" sing={"/"} />
+          <GetExService url="http://127.0.0.1:8000/ex/dividing/" sing={"/"} />
         </div>
       </div>
     </React.Fragment>

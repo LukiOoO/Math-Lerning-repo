@@ -23,22 +23,17 @@ class ScoreFilter(admin.SimpleListFilter):
 
 @admin.register(models.MathsiteUser)
 class MathsiteUserAdmin(UserAdmin):
-
     prepopulated_fields = {
         'slug': ['nickname']
     }
-
     actions = ['clear_score']
-
     list_display = ['email', 'nickname',
                     'score', 'rating', 'is_staff', 'admin']
-
     list_filter = [ScoreFilter, 'rating', 'staff', 'groups']
     list_per_page = 15
     list_editable = ['score', 'rating']
     ordering = ['email', 'nickname']
     search_fields = ['nickname__istartswith', 'email__istartswith']
-
     fieldsets = (
         (None, {'fields': ('email', 'nickname',  'slug', 'password')}),
         ('Permissions', {'fields': ('staff', 'groups')}),

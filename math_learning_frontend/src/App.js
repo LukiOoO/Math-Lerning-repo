@@ -1,15 +1,15 @@
 import React, { Component } from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
-import Banner from "./components/banner";
-import NavBar from "./components/navBar";
-import Home from "./components/home";
-import Tests from "./components/tests";
-import Exercises from "./components/ex";
-import Login from "./components/login";
-import Register from "./components/register";
+import Banner from "./components/basic_site_element/banner";
+import NavBar from "./components/basic_site_element/navBar";
+import Home from "./components/basic_site_element/home";
+import Test from "./components/math_test/tests";
+import Exercises from "./components/ex/ex";
+import Login from "./components/user_actions/login";
+import Register from "./components/user_actions/register";
 import jwt_decode from "jwt-decode";
-import Logout from "./components/logout";
-import ShowLoggedUser from "./components/loggedOnUser";
+import Logout from "./components/user_actions/logout";
+import ShowLoggedUser from "./components/user_actions/loggedOnUser";
 
 class App extends Component {
   state = {};
@@ -30,7 +30,7 @@ class App extends Component {
         {this.state.user && <ShowLoggedUser />}
         <main>
           <Switch>
-            <Route path="/tests" component={Tests} />
+            <Route path="/tests" component={Test} />
             <Route path="/exercises" component={Exercises} />
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />

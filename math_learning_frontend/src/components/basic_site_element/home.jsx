@@ -1,5 +1,5 @@
 import React from "react";
-import Bestuserlist from "./bestuserlist";
+import Bestuserlist from "../user_actions/bestuserlist";
 
 const Home = () => {
   return (

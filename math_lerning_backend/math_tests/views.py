@@ -1,27 +1,14 @@
-from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from math_exercises import views
-from rest_framework.viewsets import ReadOnlyModelViewSet
-import random
-from rest_framework.response import Response
-from rest_framework.viewsets import ReadOnlyModelViewSet
 import random
 from django.http import HttpResponse
 from math_exercises import serializers
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
-from .models import models
-from django.shortcuts import get_object_or_404
-from rest_framework import status
-from rest_framework.decorators import action, permission_classes
-
-from math_exercises.serializers import MathSerializer
+from rest_framework.decorators import action
 from rest_framework.mixins import CreateModelMixin, RetrieveModelMixin, UpdateModelMixin
 from rest_framework.viewsets import GenericViewSet
 from .serializers import MathTestSerializer
-from rest_framework.views import APIView
-from rest_framework import generics
-from users.models import MathsiteUser
 
 # Create your views here.
 
@@ -32,12 +19,10 @@ class MathTest(viewsets.ReadOnlyModelViewSet):
     def list(self, request):
         try:
             test_list = []
-
             d = views.DividingViewSet()
             a = views.AddingViewSet()
             s = views.SubtractionViewSet()
             m = views.MultiplicationViewSet()
-
             for i in range(10):
                 x = random.randint(0, 3)
                 if x == 0:
@@ -53,7 +38,6 @@ class MathTest(viewsets.ReadOnlyModelViewSet):
                     serializer = serializers.MathSerializer(
                         d.list(request).data)
                 test_list.append(serializer.data)
-
             return Response({'Your Test': test_list})
         except test_list.DoesNotExist:
             raise HttpResponse(status=204)
@@ -65,7 +49,6 @@ class TestResultView(CreateModelMixin, RetrieveModelMixin, UpdateModelMixin, Gen
 
     @action(detail=False, methods=['POST'])
     def save_result(self, request, format=None):
-
         serializer = MathTestSerializer(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()

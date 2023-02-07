@@ -1,5 +1,5 @@
 import React from "react";
-import MathForm from "./common/mathForm";
+import GetExService from "../../services/getExService";
 
 const Subtraction = () => {
   return (
@@ -7,7 +7,10 @@ const Subtraction = () => {
       <div className="subtraction-container">
         <h1>Subtraction Exercises:</h1>
         <div className="container">
-          <MathForm url="http://127.0.0.1:8000/ex/subtraction/" sing={"-"} />
+          <GetExService
+            url="http://127.0.0.1:8000/ex/subtraction/"
+            sing={"-"}
+          />
         </div>
       </div>
     </React.Fragment>

@@ -28,7 +28,6 @@ class SubtractionViewSet(ReadOnlyModelViewSet):
             b = random.randint(1, 100)
             result = a - b
             return Response({'a': a, 'b': b, 'result': int(result),  'operator': '-'})
-
         except result.DoesNotExist:
             raise HttpResponse(status=204)
 

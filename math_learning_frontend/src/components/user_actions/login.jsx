@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { useHistory } from "react-router-dom";
+import React, { useState } from "react";
 import Joi from "joi-browser";
-import jwt_decode from "jwt-decode";
+
+import LoginForm from "../common/loginForm";
 
 const Login = () => {
   const [error, setError] = useState({});
 
-  const history = useHistory();
   const [isFormValid, setIsFormValid] = useState(true);
 
   const [user, setUser] = useState({
@@ -82,34 +81,14 @@ const Login = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      {error.loginer && <div>{error.loginer}</div>}
-
-      {error.nickname && <div>{error.nickname}</div>}
-
-      <input
-        type="text"
-        name="nickname"
-        value={user.nickname}
-        onChange={handleChange}
-        placeholder="Nickname"
-      />
-      {error.password && <div>{error.password}</div>}
-      <input
-        type="password"
-        name="password"
-        value={user.password}
-        onChange={handleChange}
-        placeholder="Password"
-      />
-
-      <input
-        type="submit"
-        value="Login"
-        onClick={validateForm}
-        disabled={isFormValid}
-      />
-    </form>
+    <LoginForm
+      handleSubmit={handleSubmit}
+      error={error}
+      user={user}
+      validateForm={validateForm}
+      isFormValid={isFormValid}
+      handleChange={handleChange}
+    />
   );
 };
 export default Login;

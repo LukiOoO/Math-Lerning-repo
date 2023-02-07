@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Joi from "joi-browser";
 import { useHistory } from "react-router-dom";
+import RegisterForm from "../common/registerForm";
 
 const Register = () => {
   const [error, setError] = useState({});
@@ -92,51 +93,14 @@ const Register = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      {error.username && <div>{error.username}</div>}
-      <input
-        className="xd"
-        type="text"
-        name="nickname"
-        value={user.nickname}
-        onChange={handleChange}
-        placeholder="Nickname"
-      />
-      {error.nickname && <div>{error.nickname}</div>}
-
-      <input
-        type="text"
-        name="email"
-        value={user.email}
-        onChange={handleChange}
-        placeholder="email"
-      />
-      {error.email && <div>{error.email}</div>}
-
-      <input
-        type="password"
-        name="password"
-        onChange={handleChange}
-        value={user.password}
-        placeholder="password"
-      />
-      {error.password && <div>{error.password}</div>}
-
-      <input
-        type="password"
-        name="confirmPassword"
-        onChange={handleChange}
-        value={user.confirmPassword}
-        placeholder="confirm password"
-      />
-      {error.confirmPassword && <div>{error.confirmPassword}</div>}
-      <input
-        type="submit"
-        value="submit"
-        onClick={validateForm}
-        disabled={isFormValid}
-      />
-    </form>
+    <RegisterForm
+      error={error}
+      user={user}
+      handleChange={handleChange}
+      handleSubmit={handleSubmit}
+      validateForm={validateForm}
+      isFormValid={isFormValid}
+    />
   );
 };
 

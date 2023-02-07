@@ -1,15 +1,8 @@
-import logging
 from rest_framework.viewsets import ReadOnlyModelViewSet
-from rest_framework.response import Response
-from math_exercises.views import AddingViewSet
-from math_exercises.serializers import MathSerializer
-from users.models import MathsiteUser
 from django.conf.urls.static import static
-from rest_framework.permissions import IsAuthenticated
 from django.shortcuts import render
 from . import models
 from . import serializers
-from django.http import Http404
 # Create your views here.
 
 
@@ -25,5 +18,3 @@ class HomePageViewSet(ReadOnlyModelViewSet):
 
     def get_serializer_context(self):
         return {'request': self.request}
-
-    # permission_classes = (IsAuthenticated,)

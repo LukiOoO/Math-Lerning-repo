@@ -9,17 +9,14 @@ from django.contrib.auth.models import Group
 
 class MathsiteUserManager(BaseUserManager):
     def create_user(self, email, nickname, password):
-
         if not email:
             raise ValueError('Users must have an email address')
         if not nickname:
             raise ValueError('Users must have a nickname')
-
         user = self.model(
             email=self.normalize_email(email),
             nickname=nickname,
             password=password)
-
         user.set_password(password)
         user.save(using=self._db)
         return user
@@ -36,7 +33,6 @@ class MathsiteUserManager(BaseUserManager):
 
 
 class MathsiteUser(AbstractBaseUser):
-
     Beginer = 'B'
     Advanced = 'A'
     Master = 'M'
@@ -49,18 +45,13 @@ class MathsiteUser(AbstractBaseUser):
         unique=True, max_length=255, verbose_name='email address')
     nickname = models.CharField(max_length=255, unique=True)
     password = models.CharField(max_length=255)
-
     slug = models.SlugField()
-
     score = models.IntegerField(validators=[MinValueValidator(0)], default=0)
     rating = models.CharField(
         max_length=255, choices=RANKS_CHOICES, default=Beginer)
-
     is_active = models.BooleanField(default=True)
     staff = models.BooleanField(default=False)
-
     admin = models.BooleanField(default=False)
-
     groups = models.ManyToManyField(
         Group, related_name='mathsite_users', blank=True)
 
@@ -69,12 +60,9 @@ class MathsiteUser(AbstractBaseUser):
 
     def save(self, *args, **kwargs):
         self.slug = self.nickname
-
         password = make_password(self.password)
-
         if self.score < 0:
             self.score = 0
-
         if self.score >= 0 and self.score < 100:
             self.rating = self.Beginer
         elif self.score >= 50 and self.score < 200:
