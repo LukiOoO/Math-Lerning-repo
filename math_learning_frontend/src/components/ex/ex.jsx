@@ -1,11 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Route, Switch } from "react-router-dom";
 import MathSiteBtn from "../common/mathSiteBtn";
-import { Link } from "react-router-dom";
 import Adding from "./adding";
 import Dividing from "./dividing";
 import Multiplication from "./multiplication";
 import Subtraction from "./subtraction";
+
 const Exercises = () => {
   return (
     <React.Fragment>

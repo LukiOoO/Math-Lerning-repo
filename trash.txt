@@ -280,3 +280,65 @@ export default Register;
 
     #     # zwróć odpowiedź z potwierdzeniem
     #     return Response({'message': 'Test został zapisany i score użytkownika został zaktualizowany.'}, status=status.HTTP_200_OK)
+import { useEffect } from "react";
+
+const RefreshAccessToken = ({ user }) => {
+  useEffect(() => {
+    if (user) {
+      const intervalId = setInterval(() => {
+        fetch("http://127.0.0.1:8000/auth/jwt/refresh", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            refresh: localStorage.getItem("jwtRefreshToken"),
+          }),
+        })
+          .then((res) => {
+            return res.json();
+          })
+          .then((data) => {
+            localStorage.removeItem("jwtToken");
+            localStorage.removeItem("jwtRefreshToken");
+            localStorage.setItem("jwtToken", data.access);
+            localStorage.setItem("jwtRefreshToken", data.refresh);
+          })
+          .catch((error) => {});
+      }, 30000);
+
+      return () => {
+        clearInterval(intervalId);
+      };
+    }
+  }, []);
+
+  return null;
+};
+
+export default RefreshAccessToken;
+
+
+  useEffect(() => {
+    setInterval(() => {
+      if (localStorage.refresh) {
+        fetch("http://127.0.0.1:8000/auth/jwt/refresh", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            refresh: localStorage.getItem("jwtRefreshToken"),
+          }),
+        })
+          .then((res) => {
+            return res.json();
+          })
+          .then((data) => {
+            localStorage.setItem("jwtToken", data.access);
+            localStorage.setItem("jwtRefreshToken", data.refresh);
+          })
+          .catch((error) => {});
+      }
+    }, 30000);
+  }, []);

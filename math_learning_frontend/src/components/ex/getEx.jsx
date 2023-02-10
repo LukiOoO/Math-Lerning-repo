@@ -1,17 +1,21 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import NextBtn from "../components/common/nextBtn";
-import CustomInput from "../components/common/customInpu";
+import NextBtn from "../common/nextBtn";
+import CustomInput from "../common/customInpu";
 
-const GetExService = ({ sing, url }) => {
+const GetEx = ({ sing, url }) => {
   const [data, setData] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [inputColor, setInputColor] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
-      const result = await axios.get(url);
-      setData(result.data);
+      try {
+        const result = await axios.get(url);
+        setData(result.data);
+      } catch (error) {
+        console.error(error);
+      }
     };
 
     fetchData();
@@ -45,4 +49,4 @@ const GetExService = ({ sing, url }) => {
   );
 };
 
-export default GetExService;
+export default GetEx;

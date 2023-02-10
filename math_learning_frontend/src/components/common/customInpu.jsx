@@ -3,6 +3,7 @@ const CustomInput = ({
   name,
   value,
   onChange,
+  onClick,
   placeholder,
   disabled,
   style,
@@ -15,6 +16,7 @@ const CustomInput = ({
       name={name}
       value={value}
       onChange={onChange}
+      onClick={onClick}
       placeholder={placeholder}
       disabled={disabled}
       style={style}

@@ -1,5 +1,5 @@
 import React from "react";
-import GetExService from "../../services/getExService";
+import GetEx from "./getEx";
 
 const Multiplication = () => {
   return (
@@ -7,10 +7,7 @@ const Multiplication = () => {
       <div className="multiplication-container">
         <h1>Multiplication Exercises:</h1>
         <div className="container">
-          <GetExService
-            url="http://127.0.0.1:8000/ex/multiplication/"
-            sing={"*"}
-          />
+          <GetEx url="http://127.0.0.1:8000/ex/multiplication/" sing={"*"} />
         </div>
       </div>
     </React.Fragment>

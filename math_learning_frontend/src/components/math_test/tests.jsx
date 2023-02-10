@@ -2,8 +2,9 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import { Link } from "react-router-dom";
 import UserTest from "./userTest";
-import TestResult from "./testResult";
+import TestResultLogic from "./testResultLogic";
 import MathSiteBtn from "../common/mathSiteBtn";
+import TestResultShowScore from "./testResultScore";
 
 const Test = () => {
   return (
@@ -14,7 +15,8 @@ const Test = () => {
 
       <Switch>
         <Route path="/tests/yourtest" component={UserTest} />
-        <Route path="/tests/result" component={TestResult} />
+        <Route path="/tests/result" component={TestResultLogic} />
+        <Route path="/tests/result-score" component={TestResultShowScore} />
       </Switch>
     </React.Fragment>
   );

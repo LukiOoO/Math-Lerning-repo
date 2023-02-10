@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
+
 const ShowLoggedUser = () => {
   const [data, setData] = useState();
-  const [error, setError] = useState();
+  const [error] = useState();
 
   useEffect(() => {
     const fetchData = () => {

@@ -1,8 +1,9 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 
 const Logout = () => {
   useEffect(() => {
     localStorage.removeItem("jwtToken");
+    localStorage.removeItem("jwtRefreshToken");
     window.location = "/";
   }, []);
 

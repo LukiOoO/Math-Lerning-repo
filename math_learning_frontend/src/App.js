@@ -8,9 +8,10 @@ import Exercises from "./components/ex/ex";
 import Login from "./components/user_actions/login";
 import Register from "./components/user_actions/register";
 import jwt_decode from "jwt-decode";
-import Logout from "./components/user_actions/logout";
+import Logout from "./services/logoutService";
 import ShowLoggedUser from "./components/user_actions/loggedOnUser";
-
+import RefreshAccessToken from "./services/refreshAccessJwt";
+import Footer from "./components/basic_site_element/footer";
 class App extends Component {
   state = {};
 
@@ -21,10 +22,10 @@ class App extends Component {
       this.setState({ user });
     } catch (ex) {}
   }
-
   render() {
     return (
       <React.Fragment>
+        <RefreshAccessToken />
         <Banner />
         <NavBar user={this.state.user} />
         {this.state.user && <ShowLoggedUser />}
@@ -35,9 +36,12 @@ class App extends Component {
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
             <Route path="/logout" component={Logout} />
-            <Route path="/" component={Home} />
+            <Route path="/">
+              <Home user={this.state.user} />
+            </Route>
             <Redirect from="/" to="/" />
           </Switch>
+          <Footer />
         </main>
       </React.Fragment>
     );

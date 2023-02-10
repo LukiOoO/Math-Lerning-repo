@@ -5,7 +5,7 @@ body {
   margin: 0;
 }
 
-.Banner {
+.banner {
   background: rgb(48, 30, 103);
   background: linear-gradient(
     137deg,
@@ -18,7 +18,7 @@ body {
   border: 1px solid #b6eada;
 }
 
-.Banner h1 {
+.banner h1 {
   text-align: center;
   font-size: 50px;
   text-shadow: 3px 3px 10px rgba(91, 143, 185, 1);

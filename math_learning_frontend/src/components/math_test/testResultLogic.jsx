@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import { useHistory } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 
-const TestResult = (props) => {
+const TestResultLogic = (props) => {
   const { tests, inputValues } = props.location.state;
+  const history = useHistory();
 
   const jwt = localStorage.getItem("jwtToken");
   const userId = jwt_decode(jwt)["user_id"];
@@ -38,22 +39,14 @@ const TestResult = (props) => {
   })
     .then((response) => response.json())
     .then((data) => {
-      console.log("Success:", data);
+      history.push({
+        pathname: "/tests/result-score",
+        state: { correct, mistakes },
+      });
     })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
+    .catch((error) => {});
 
-  return (
-    <React.Fragment>
-      <div>
-        <h1>
-          <p>Correct answers: {correct}</p>
-          <p>Mistakes answers: {mistakes}</p>
-        </h1>
-      </div>
-    </React.Fragment>
-  );
+  return null;
 };
 
-export default TestResult;
+export default TestResultLogic;
