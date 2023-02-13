@@ -511,3 +511,14 @@ GITHUB MORE CLEANER
 AUTOMATED TESTS
 
 finally collect satci later
+
+
+mysql -u root -p
+
+install mysql server 
+
+install my sql worbeanch 
+
+Stworzyc baze danych dane w pliku dev 
+
+
