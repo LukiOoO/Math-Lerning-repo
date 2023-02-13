@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Route, Redirect, Switch } from "react-router-dom";
 import Banner from "./components/basic_site_element/banner";
-import NavBar from "./components/basic_site_element/navBar";
 import Home from "./components/basic_site_element/home";
 import Test from "./components/math_test/tests";
 import Exercises from "./components/ex/ex";
@@ -12,6 +11,7 @@ import Logout from "./services/logoutService";
 import ShowLoggedUser from "./components/user_actions/loggedOnUser";
 import RefreshAccessToken from "./services/refreshAccessJwt";
 import Footer from "./components/basic_site_element/footer";
+import UserProfilePage from "./components/user_actions/userProfile";
 class App extends Component {
   state = {};
 
@@ -26,8 +26,8 @@ class App extends Component {
     return (
       <React.Fragment>
         <RefreshAccessToken />
-        <Banner />
-        <NavBar user={this.state.user} />
+        <Banner user={this.state.user} />
+
         {this.state.user && <ShowLoggedUser />}
         <main>
           <Switch>
@@ -36,6 +36,7 @@ class App extends Component {
             <Route path="/login" component={Login} />
             <Route path="/register" component={Register} />
             <Route path="/logout" component={Logout} />
+            <Route path="/user-profile" component={UserProfilePage} />
             <Route path="/">
               <Home user={this.state.user} />
             </Route>

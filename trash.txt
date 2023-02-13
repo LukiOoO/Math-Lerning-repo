@@ -342,3 +342,172 @@ export default RefreshAccessToken;
       }
     }, 30000);
   }, []);
+
+
+  git push -u origin Finish_etap
+
+
+
+  https://coolors.co/palette/f8f9fa-e9ecef-dee2e6-ced4da-adb5bd-6c757d-495057-343a40-212529
+
+
+
+
+  body {
+  background-color: #212529;
+  color: #adb5bd;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+}
+.banner {
+  display: flex;
+  flex-direction: row-reverse;
+  background-color: black;
+  height: 155px;
+}
+.banner-left {
+  width: 30%;
+}
+.banner-right {
+  width: 70%;
+}
+
+.banner h1 {
+  text-align: center;
+  font-size: 50px;
+  padding: 35px;
+}
+.nav-item {
+  display: block;
+  line-height: 48px;
+  padding: 0 14px;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 20px;
+
+  display: inline;
+  position: relative;
+}
+
+.nav-item:hover {
+  color: #212529;
+  display: inline-block;
+  background: #adb5bd;
+}
+
+.navbar-main-container {
+  text-align: center;
+  background: black;
+  color: #fff;
+  height: 48px;
+  padding-left: 18px;
+  border-radius: 0px;
+}
+.h1-home-page,
+.h1-ex-page {
+  text-align: center;
+  color: #f8f9fa;
+}
+.login-container {
+  display: flex;
+}
+
+.no-login {
+  display: flex;
+  padding: 10px;
+  flex-wrap: wrap;
+  flex-direction: column-reverse;
+  align-items: center;
+}
+
+.home-page {
+  display: flex;
+  font-size: large;
+  flex-direction: column;
+  align-items: center;
+}
+
+.strong-home {
+  font-size: 40px;
+}
+
+.p-home-page {
+  margin: 15px;
+  display: flex;
+}
+
+.best-users-list {
+  -webkit-box-shadow: inset 0px 0px 33px -7px rgba(248, 249, 250, 1);
+  -moz-box-shadow: inset 0px 0px 33px -7px rgba(248, 249, 250, 1);
+  box-shadow: inset 0px 0px 33px -7px rgba(248, 249, 250, 1);
+  color: #adb5bd;
+  border: 1px solid #f8f9fa;
+  width: 40%;
+  text-align: center;
+  background-color: #6c757d;
+}
+.best-users-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.li-users-list {
+  margin: 10px;
+}
+.user-list-container {
+  text-align: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.h1-list {
+  border-bottom: 1px solid;
+  color: #f8f9fa;
+}
+.ranks-info {
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.user-data {
+  font-weight: bolder;
+}
+
+.user-profile {
+  background-color: black;
+  color: #f8f9fa;
+  margin: 5px;
+  width: 25%;
+  text-align: center;
+  display: inline;
+}
+
+.footer-element {
+  position: sticky;
+  margin-top: 10px;
+  top: 0;
+  background-color: lightgray;
+  padding: 10px;
+  background-color: #343a40;
+  color: #adb5bd;
+  text-align: center;
+}
+
+
+
+JEBANY KURWA REFRESH TOKEN 
+
+USER ACTION CHANGE PASSWORD AND ANATHER THINGS
+
+LOGIC TEST IMPLEMENTATCION
+
+STYLE CSS FAVICON THEME BUTTON SWICTH 
+
+GITHUB MORE CLEANER
+
+AUTOMATED TESTS
+
+finally collect satci later

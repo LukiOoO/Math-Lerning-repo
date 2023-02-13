@@ -1,9 +1,15 @@
 import React from "react";
 
-const MathSiteBtn = ({ type, id, value, ...rest }) => {
+const MathSiteBtn = ({ type, id, value, className, disabled, ...rest }) => {
   return (
     <React.Fragment>
-      <button type={type} id={id} value={value} className="btn">
+      <button
+        type={type}
+        id={id}
+        value={value}
+        className={className}
+        disabled={disabled}
+      >
         <span> </span>
         {value}
       </button>

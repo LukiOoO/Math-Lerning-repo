@@ -28,10 +28,12 @@ const ShowLoggedUser = () => {
     <div>
       {error && <p>Something went wrong: {error.message}</p>}
       {data ? (
-        <div>
-          <p>Nickname: {data.nickname}</p>
-          <p>Score: {data.score}</p>
-          <p>Rating: {data.rating}</p>
+        <div className="user-profile">
+          <div className="user-helper-container">
+            <p className="user-data">Nickname: {data.nickname}</p>
+            <p className="user-data">Score: {data.score}</p>
+            <p className="user-data">Rating: {data.rating}</p>
+          </div>
         </div>
       ) : (
         <p>Loading...</p>

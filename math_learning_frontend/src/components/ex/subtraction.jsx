@@ -6,7 +6,7 @@ const Subtraction = () => {
     <React.Fragment>
       <div className="subtraction-container">
         <h1>Subtraction Exercises:</h1>
-        <div className="container">
+        <div className="num-container">
           <GetEx url="http://127.0.0.1:8000/ex/subtraction/" sing={"-"} />
         </div>
       </div>

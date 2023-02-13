@@ -28,6 +28,9 @@ const NavBar = ({ user }) => {
               <NavLink className="nav-item" id="navbar-link" to="/tests">
                 Tests
               </NavLink>
+              <NavLink className="nav-item" id="navbar-link" to="/user-profile">
+                User Profile
+              </NavLink>
               <NavLink className="nav-item" to="/logout">
                 Logout
               </NavLink>

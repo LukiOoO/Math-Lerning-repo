@@ -13,16 +13,44 @@ const Exercises = () => {
       <h1 className="h1-ex-page">Exercises</h1>
       <div className="ex-btn-container">
         <Link className="ex-link" to="/exercises/adding">
-          <MathSiteBtn type="button" id="btn-add" value="Adding" />
+          <MathSiteBtn
+            type="button"
+            id="btn-add"
+            value="Adding"
+            className="btn-add"
+          >
+            <span></span>
+          </MathSiteBtn>
         </Link>
         <Link className="ex-link" to="/exercises/subtraction">
-          <MathSiteBtn type="button" id="btn-add" value="Subtraction" />
+          <MathSiteBtn
+            type="button"
+            id="btn-sub"
+            value="Subtraction"
+            className="btn-sub"
+          >
+            <span></span>
+          </MathSiteBtn>
         </Link>
         <Link className="ex-link" to="/exercises/multiplication">
-          <MathSiteBtn type="button" id="btn-add" value="Multiplication" />
+          <MathSiteBtn
+            type="button"
+            id="btn-mul"
+            value="Multiplication"
+            className="btn-mul"
+          >
+            <span></span>
+          </MathSiteBtn>
         </Link>
         <Link className="ex-link" to="/exercises/dividing">
-          <MathSiteBtn type="button" id="btn-add" value="Dividing" />
+          <MathSiteBtn
+            type="button"
+            id="btn-div"
+            value="Dividing"
+            className="btn-div"
+          >
+            <span></span>
+          </MathSiteBtn>
         </Link>
       </div>
 

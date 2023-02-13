@@ -6,7 +6,7 @@ const Adding = () => {
     <React.Fragment>
       <div className="adding-container">
         <h1>Adding Exercises:</h1>
-        <div className="container">
+        <div className="num-container">
           <GetEx url="http://127.0.0.1:8000/ex/adding/" sing={"+"} />
         </div>
       </div>
