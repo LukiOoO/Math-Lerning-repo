@@ -100,3 +100,33 @@ class LoginBtnIconViewSet(ReadOnlyModelViewSet):
 
     def get_serializer_context(self):
         return {'request': self.request}
+
+
+class EmailIconViewSet(ReadOnlyModelViewSet):
+    serializer_class = serializers.PictrueSerializer
+
+    def get_queryset(self):
+        return models.Pictures.objects.filter(id=10)
+
+    def get_serializer_context(self):
+        return {'request': self.request}
+
+
+class BgImageViewSet(ReadOnlyModelViewSet):
+    serializer_class = serializers.PictrueSerializer
+
+    def get_queryset(self):
+        return models.Pictures.objects.filter(id=11)
+
+    def get_serializer_context(self):
+        return {'request': self.request}
+
+
+class FormsBgViewSet(ReadOnlyModelViewSet):
+    serializer_class = serializers.PictrueSerializer
+
+    def get_queryset(self):
+        return models.Pictures.objects.filter(id=12)
+
+    def get_serializer_context(self):
+        return {'request': self.request}

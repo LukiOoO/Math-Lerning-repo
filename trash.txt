@@ -496,29 +496,3 @@ export default RefreshAccessToken;
   text-align: center;
 }
 
-
-
-JEBANY KURWA REFRESH TOKEN 
-
-USER ACTION CHANGE PASSWORD AND ANATHER THINGS
-
-LOGIC TEST IMPLEMENTATCION
-
-STYLE CSS FAVICON THEME BUTTON SWICTH 
-
-GITHUB MORE CLEANER
-
-AUTOMATED TESTS
-
-finally collect satci later
-
-
-mysql -u root -p
-
-install mysql server 
-
-install my sql worbeanch 
-
-Stworzyc baze danych dane w pliku dev 
-
-
