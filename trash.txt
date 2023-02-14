@@ -496,3 +496,20 @@ export default RefreshAccessToken;
   text-align: center;
 }
 
+
+JEBANY KURWA REFRESH TOKEN 
+
+USER ACTION CHANGE PASSWORD AND ANATHER THINGS
+
+
+FOOTER UPGRADE 
+
+STEPS HARD OR ES EX
+
+THEME BUTTON SWICTH 
+
+AUTOMATED TESTS
+
+Stworzyc baze danych dane w pliku dev 
+
+finally collect satci later
