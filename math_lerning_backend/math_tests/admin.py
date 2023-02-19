@@ -5,4 +5,4 @@ from .models import TestModel
 
 @admin.register(TestModel)
 class TestAdmin(admin.ModelAdmin):
-    list_display = ('id', 'correct', 'mistakes', 'user')
+    list_display = ('id', 'correct', 'mistakes', 'user', 'level')

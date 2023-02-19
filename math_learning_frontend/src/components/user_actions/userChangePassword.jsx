@@ -4,10 +4,7 @@ import Joi from "joi-browser";
 import { loginUser } from "../../services/loginService";
 import { Route, Redirect, Switch, Link } from "react-router-dom";
 
-import MathSiteBtn from "../common/mathSiteBtn";
-// import Test from "./../math_test/tests";
-
-const UserProfilePage = () => {
+const UserChangePassword = () => {
   const [error, setError] = useState({});
   const [isFormValid, setIsFormValid] = useState(true);
   const [youLastTests, setLastTests] = useState([]);
@@ -113,6 +110,11 @@ const UserProfilePage = () => {
           }
         }
       })
+      .then((res) => {
+        if (res.ok) {
+          window.close();
+        }
+      })
       .then((data) => {})
       .catch((error) => {
         console.log(error);
@@ -130,33 +132,54 @@ const UserProfilePage = () => {
   }, []);
 
   return (
-    <React.Fragment>
-      <div className="user-profile-container">
-        <div className="change-password-container">
-          <p className="p-change-password">
-            if you want to change your password you can do it here{" "}
-          </p>
-          <Link to="/change-password" target="_blank">
-            <MathSiteBtn
-              value="CLick to Change Password"
-              className="open-password-page"
-            />{" "}
-          </Link>
-        </div>
-
-        <div className="user-last-tests-container">
-          <h2>These are your latest tests</h2>
-          <ol className="last-tests-ol">
-            {youLastTests.map((test, index) => (
-              <li key={index}>
-                Correct: {test.correct} Mistakes: {test.mistakes}
-              </li>
-            ))}
-          </ol>
-        </div>
-      </div>
-    </React.Fragment>
+    <div className="change-password-container">
+      {error.change_password && (
+        <div className="error-message">{error.change_password}</div>
+      )}
+      <form onSubmit={handleSubmit} className="change-password-form">
+        {error.new_password && (
+          <div className="error-message">{error.new_password}</div>
+        )}
+        <input
+          type="password"
+          placeholder="New password"
+          value={newPassword.new_password}
+          name="new_password"
+          className="new-password"
+          onChange={handleChange}
+        />
+        {error.confirmPassword && (
+          <div className="error-message">{error.confirmPassword}</div>
+        )}
+        <input
+          type="password"
+          placeholder="Confirm new password"
+          value={newPassword.confirmPassword}
+          name="confirmPassword"
+          className="confirm-new-password"
+          onChange={handleChange}
+        />
+        {error.current_password && (
+          <div className="error-message">{error.current_password}</div>
+        )}
+        <input
+          type="password"
+          placeholder="Current password"
+          value={newPassword.current_password}
+          name="current_password"
+          className="old-password"
+          onChange={handleChange}
+        />
+        <input
+          type="submit"
+          value="Change"
+          className="submit-new-password"
+          onClick={validateForm}
+          disabled={isFormValid}
+        />
+      </form>
+    </div>
   );
 };
 
-export default UserProfilePage;
+export default UserChangePassword;

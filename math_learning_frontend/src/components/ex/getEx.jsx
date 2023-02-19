@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import NextBtn from "../common/nextBtn";
-import CustomInput from "../common/customInpu";
+import CustomInput from "../common/customInput";
 
 const GetEx = ({ sing, url }) => {
   const [data, setData] = useState([]);

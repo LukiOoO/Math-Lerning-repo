@@ -1,11 +1,11 @@
 const TestResultShowScore = (props) => {
   const { mistakes, correct } = props.location.state;
   return (
-    <div>
-      <h1>
-        <p>Correct answers: {correct}</p>
-        <p>Mistakes answers: {mistakes}</p>
-      </h1>
+    <div className="test-result-container">
+      <p>Correct answers: {correct}</p>
+      <span className="correct"></span>
+      <p>Mistakes answers: {mistakes}</p>
+      <span className="mistakes"></span>
     </div>
   );
 };

@@ -130,3 +130,23 @@ class FormsBgViewSet(ReadOnlyModelViewSet):
 
     def get_serializer_context(self):
         return {'request': self.request}
+
+
+class TestIconViewSet(ReadOnlyModelViewSet):
+    serializer_class = serializers.PictrueSerializer
+
+    def get_queryset(self):
+        return models.Pictures.objects.filter(id=13)
+
+    def get_serializer_context(self):
+        return {'request': self.request}
+
+
+class CheackIconViewSet(ReadOnlyModelViewSet):
+    serializer_class = serializers.PictrueSerializer
+
+    def get_queryset(self):
+        return models.Pictures.objects.filter(id=14)
+
+    def get_serializer_context(self):
+        return {'request': self.request}

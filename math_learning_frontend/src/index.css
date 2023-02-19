@@ -9,7 +9,7 @@ body {
 }
 
 main {
-  min-height: 92vh;
+  min-height: 96vh;
 }
 
 .banner {
@@ -128,7 +128,13 @@ a {
 .btn-add,
 .btn-sub,
 .btn-mul,
-.btn-div {
+.btn-div,
+.make-test-btn,
+.cheack-btn,
+.open-password-page,
+.es-btn,
+.mid-btn,
+.hard-btn {
   background: linear-gradient(to right, #343a40, #6c757d);
   background-color: #343a40;
   color: #dee2e6;
@@ -143,6 +149,7 @@ a {
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  border-radius: 10px;
 }
 .btn-add span {
   margin-right: 15px;
@@ -194,11 +201,37 @@ a {
   background-size: contain;
   transform: rotate(0deg);
 }
+.make-test-btn span {
+  margin-right: 15px;
+  display: block;
+  width: 29px;
+  height: 29px;
+  background-image: url(http://127.0.0.1:8000/media/static/images/test-icon.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: rotate(0deg);
+}
+.cheack-btn span {
+  margin-right: 15px;
+  display: block;
+  width: 29px;
+  height: 29px;
+  background-image: url(http://127.0.0.1:8000/media/static/images/cheack-icon.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: rotate(0deg);
+}
 .btn-add:hover,
 .btn-sub:hover,
 .btn-mul:hover,
 .btn-div:hover,
-.btn-next:hover {
+.btn-next:hover,
+.make-test-btn:hover,
+.cheack-btn:hover,
+.open-password-page:hover,
+.es-btn:hover,
+.mid-btn:hover,
+.hard-btn:hover {
   background: linear-gradient(to right, #5f6265, #82898f);
   background-color: #5f6265;
 }
@@ -206,7 +239,13 @@ a {
 .btn-sub:active,
 .btn-mul:active,
 .btn-div:active,
-.btn-next:active {
+.btn-next:active,
+.make-test-btn:active,
+.cheack-btn:active,
+.open-password-page:active,
+.es-btn:active,
+.mid-btn:active,
+.hard-btn:active {
   transform: scale(0.95);
 }
 .ex-btn-container {
@@ -231,8 +270,10 @@ a {
   justify-content: center;
 }
 
-.number-input {
+.number-input,
+.test-number-input {
   width: 90px;
+  border-radius: 10px;
   height: 50px;
   font-size: 40px;
   background-color: #343a40;
@@ -256,6 +297,7 @@ a {
   display: inline-flex;
   justify-content: center;
   align-items: center;
+  border-radius: 10px;
 }
 .login-form {
   border-radius: 20px;
@@ -282,12 +324,28 @@ a {
 
   max-height: 500px;
 }
+.change-password-form {
+  border-radius: 20px;
+  display: grid;
+  margin: 10vh auto;
+  width: 300px;
+  background-color: #495057;
+  background-image: url(http://127.0.0.1:8000/media/static/images/forms-bg-image.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding: 50px;
+  height: 300px;
+}
+
 .login-input-nick,
 .login-input-password,
 .register-nickname,
 .register-email,
 .register-password1,
-.register-password2 {
+.register-password2,
+.new-password,
+.confirm-new-password,
+.old-password {
   color: #f8f9fa;
   text-align: center;
   border-radius: 15px;
@@ -319,7 +377,8 @@ a {
   transform: rotate(0deg);
 }
 .login-input-sbmit:disabled,
-.register-submit:disabled {
+.register-submit:disabled,
+.submit-new-password:disabled {
   opacity: 0.4;
 }
 .login-input-sbmit {
@@ -333,6 +392,29 @@ a {
   transform: rotate(0deg);
   height: 50px;
   width: 120px;
+  font-family: Arial;
+  font-size: 20px;
+  font-weight: 800;
+  font-style: normal;
+  text-decoration: none;
+  padding: 10px 3px 10px 40px;
+  border: 0px solid #000;
+  border-radius: 100px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+}
+.submit-new-password {
+  background: linear-gradient(to right, #343a40, #6c757d);
+  background-color: #343a40;
+  color: #adb5bd;
+  margin: 0 auto;
+  background-image: url(http://127.0.0.1:8000/media/static/images/login.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: rotate(0deg);
+  height: 50px;
+  width: 140px;
   font-family: Arial;
   font-size: 20px;
   font-weight: 800;
@@ -370,12 +452,14 @@ a {
 }
 
 .login-input-sbmit:hover,
-.register-submit:hover {
+.register-submit:hover,
+.submit-new-password:hover {
   background: linear-gradient(to right, #5f6265, #82898f);
   background-color: #5f6265;
 }
 .login-input-sbmit:active,
-.register-submit:active {
+.register-submit:active,
+.submit-new-password:active {
   transform: scale(0.95);
 }
 
@@ -394,8 +478,49 @@ a {
 .register-email::-webkit-input-placeholder,
 .register-nickname::-webkit-input-placeholder,
 .register-password1::-webkit-input-placeholder,
-.register-password2::-webkit-input-placeholder {
+.register-password2::-webkit-input-placeholder,
+.new-password::-webkit-input-placeholder,
+.confirm-new-password::-webkit-input-placeholder,
+.old-password::-webkit-input-placeholder {
   color: #f8f9fa;
+  text-align: center;
+}
+.test-btn-container,
+.test-form,
+.cheack-btn-container {
+  display: flex;
+  justify-content: center;
+  font-weight: bolder;
+}
+.test-result-container {
+  font-size: 30px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-weight: bolder;
+}
+
+.test-form {
+  font-size: 30px;
+}
+td {
+  padding: 3px;
+}
+.test-number-input {
+  margin-left: 10px;
+}
+.user-profile-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+.user-last-tests-container,
+.p-change-password {
+  font-size: 20px;
+}
+
+.last-tests-ol,
+.change-password-container {
   text-align: center;
 }
 

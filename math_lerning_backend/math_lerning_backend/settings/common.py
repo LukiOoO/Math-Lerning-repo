@@ -152,12 +152,14 @@ DJOSER = {
     'SERIALIZERS': {
         'user_create': 'users.serializers.UserCreateSerializer',
         'current_user': 'users.serializers.UserSerializer',
-    }
+
+    },
 }
+
 SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('JWT',),
-    'REFRESH_TOKEN_LIFETIME': timedelta(minutes=6),
-    'ROTATE_REFRESH_TOKENS': True,
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'ROTATE_REFRESH_TOKENS': False,
 }
 
 

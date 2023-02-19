@@ -1,4 +1,4 @@
-import CustomInput from "../common/customInpu";
+import CustomInput from "./customInput";
 
 const RegisterForm = ({
   error,

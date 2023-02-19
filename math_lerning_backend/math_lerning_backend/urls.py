@@ -19,6 +19,7 @@ import debug_toolbar
 from django.conf import settings
 from django.conf.urls.static import static
 
+
 admin.site.site_header = 'Math Learning Admin'
 admin.site.index_title = 'Admin'
 

@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import MathSiteBtn from "../common/mathSiteBtn";
-import Table from "./../common/testTable";
+import Table from "../common/testTable";
 
-const UserTest = () => {
+const EasyUserTest = () => {
   const [tests, setTests] = useState([]);
   const [inputValues, setInputValues] = useState({});
 
   useEffect(() => {
-    fetch("http://127.0.0.1:8000/test/get-test/", {
+    fetch("http://127.0.0.1:8000/test/get-es-test/", {
       headers: {
         Authorization: "JWT " + localStorage.getItem("jwtToken"),
       },
@@ -20,7 +20,7 @@ const UserTest = () => {
 
   return (
     <React.Fragment>
-      <form>
+      <form className="test-form">
         <Table
           tests={tests}
           inputValues={inputValues}
@@ -29,16 +29,22 @@ const UserTest = () => {
       </form>
       <Link
         className="ex-link"
-        to={{ pathname: "/tests/result", state: { inputValues, tests } }}
+        to={{
+          pathname: "/tests/easy-test-result",
+          state: { inputValues, tests },
+        }}
       >
-        <MathSiteBtn
-          type="button"
-          onClick={() => window.location.reload(false)}
-          value="Cheack"
-        />
+        <div className="cheack-btn-container">
+          <MathSiteBtn
+            type="button"
+            onClick={() => window.location.reload(false)}
+            value="Cheack"
+            className="cheack-btn"
+          />
+        </div>
       </Link>
     </React.Fragment>
   );
 };
 
-export default UserTest;
+export default EasyUserTest;

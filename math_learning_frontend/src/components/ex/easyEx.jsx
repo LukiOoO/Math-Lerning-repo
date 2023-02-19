@@ -2,17 +2,17 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Route, Switch } from "react-router-dom";
 import MathSiteBtn from "../common/mathSiteBtn";
-import Adding from "./adding";
-import Dividing from "./dividing";
-import Multiplication from "./multiplication";
-import Subtraction from "./subtraction";
+import EsAdding from "./esAdding";
+import EsDividing from "./esDividing";
+import EsMultiplication from "./esMultiplication";
+import EsSubtraction from "./esSubtraction";
 
-const Exercises = () => {
+const EasyExercises = () => {
   return (
     <React.Fragment>
-      <h1 className="h1-ex-page">Exercises</h1>
+      <h1 className="h1-ex-page">Easy Exercises</h1>
       <div className="ex-btn-container">
-        <Link className="ex-link" to="/exercises/adding">
+        <Link className="ex-link" to="/exercises/easy/adding">
           <MathSiteBtn
             type="button"
             id="btn-add"
@@ -22,7 +22,7 @@ const Exercises = () => {
             <span></span>
           </MathSiteBtn>
         </Link>
-        <Link className="ex-link" to="/exercises/subtraction">
+        <Link className="ex-link" to="/exercises/easy/subtraction">
           <MathSiteBtn
             type="button"
             id="btn-sub"
@@ -32,7 +32,7 @@ const Exercises = () => {
             <span></span>
           </MathSiteBtn>
         </Link>
-        <Link className="ex-link" to="/exercises/multiplication">
+        <Link className="ex-link" to="/exercises/easy/multiplication">
           <MathSiteBtn
             type="button"
             id="btn-mul"
@@ -42,7 +42,7 @@ const Exercises = () => {
             <span></span>
           </MathSiteBtn>
         </Link>
-        <Link className="ex-link" to="/exercises/dividing">
+        <Link className="ex-link" to="/exercises/easy/dividing">
           <MathSiteBtn
             type="button"
             id="btn-div"
@@ -55,13 +55,16 @@ const Exercises = () => {
       </div>
 
       <Switch>
-        <Route path="/exercises/adding" component={Adding} />
-        <Route path="/exercises/subtraction" component={Subtraction} />
-        <Route path="/exercises/multiplication" component={Multiplication} />
-        <Route path="/exercises/dividing" component={Dividing} />
+        <Route path="/exercises/easy/adding" component={EsAdding} />
+        <Route path="/exercises/easy/subtraction" component={EsSubtraction} />
+        <Route
+          path="/exercises/easy/multiplication"
+          component={EsMultiplication}
+        />
+        <Route path="/exercises/easy/dividing" component={EsDividing} />
       </Switch>
     </React.Fragment>
   );
 };
 
-export default Exercises;
+export default EasyExercises;

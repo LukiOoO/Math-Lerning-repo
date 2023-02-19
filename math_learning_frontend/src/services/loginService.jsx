@@ -10,6 +10,7 @@ export const loginUser = ({ user, setError, error }) => {
       if (res.status === 400 || res.status === 401) {
         setError({ ...error, loginer: "Incorrect password or nickname" });
       } else if (res.status !== 400 && res.status !== 401) {
+        localStorage.setItem("nickname", user.nickname);
         window.location = "/";
       } else {
         setError({});

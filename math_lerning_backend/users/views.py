@@ -1,11 +1,15 @@
 from rest_framework.mixins import CreateModelMixin, RetrieveModelMixin, UpdateModelMixin
-from rest_framework.viewsets import GenericViewSet
+from rest_framework.viewsets import GenericViewSet, ReadOnlyModelViewSet
 from users.models import MathsiteUser
 from .serializers import MathUserSerializer
 from rest_framework.response import Response
 from rest_framework.decorators import action, permission_classes
 from .permission import IsProfileOwner
 from django.http import Http404
+from show_score.serializers import ScoreSerializer
+from .models import MathsiteUser
+from math_tests.models import TestModel
+from math_tests.serializers import MathTestSerializer
 
 
 # Create your views here.
@@ -31,3 +35,15 @@ class MathUserViewSet(CreateModelMixin, RetrieveModelMixin, UpdateModelMixin, Ge
                 serializer.is_valid(raise_exception=True)
                 serializer.save()
                 return Response(serializer.data)
+
+
+class ShowOneUserScore(ReadOnlyModelViewSet):
+    serializer_class = MathTestSerializer
+    permission_classes = [IsProfileOwner]
+
+    def get_queryset(self):
+        user_id = self.request.user.id
+        return TestModel.objects.filter(user_id=user_id).order_by('-id').all()[:10]
+
+    def get_serializer_context(self):
+        return {'request': self.request}

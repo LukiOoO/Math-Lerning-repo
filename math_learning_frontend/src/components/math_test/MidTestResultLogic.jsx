@@ -1,7 +1,7 @@
 import { useHistory } from "react-router-dom";
 import jwt_decode from "jwt-decode";
 
-const TestResultLogic = (props) => {
+const MidTestResultLogic = (props) => {
   const { tests, inputValues } = props.location.state;
   const history = useHistory();
 
@@ -27,6 +27,7 @@ const TestResultLogic = (props) => {
     correct: correct,
     mistakes: mistakes,
     user_id: `${userId}`,
+    level: "advanced",
   };
 
   fetch("http://127.0.0.1:8000/test/test-result/", {
@@ -49,4 +50,4 @@ const TestResultLogic = (props) => {
   return null;
 };
 
-export default TestResultLogic;
+export default MidTestResultLogic;

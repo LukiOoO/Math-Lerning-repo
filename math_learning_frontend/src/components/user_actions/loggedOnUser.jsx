@@ -6,7 +6,7 @@ const ShowLoggedUser = () => {
 
   useEffect(() => {
     const fetchData = () => {
-      fetch("http://127.0.0.1:8000/mathuser/me/", {
+      fetch("http://127.0.0.1:8000/mathuser/userdata/me/", {
         headers: {
           Authorization: "JWT " + localStorage.getItem("jwtToken"),
         },

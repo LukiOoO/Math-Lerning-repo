@@ -1,6 +1,6 @@
 from django.urls import path
 from django.views.generic import TemplateView
-from .views import HomePageViewSet, AddIconViewSet, SubIconViewSet, DivIconViewSet, MulIconViewSet, NextIconViewSet, LoginIconViewSet, PasswordIconViewSet, LoginBtnIconViewSet, EmailIconViewSet, BgImageViewSet, FormsBgViewSet
+from .views import HomePageViewSet, AddIconViewSet, SubIconViewSet, DivIconViewSet, MulIconViewSet, NextIconViewSet, LoginIconViewSet, PasswordIconViewSet, LoginBtnIconViewSet, EmailIconViewSet, BgImageViewSet, FormsBgViewSet, TestIconViewSet, CheackIconViewSet
 
 
 urlpatterns = [
@@ -18,6 +18,8 @@ urlpatterns = [
     path('email-icon/', EmailIconViewSet.as_view({'get': 'list'})),
     path('bg-image/', BgImageViewSet.as_view({'get': 'list'})),
     path('forms-bg-image/', FormsBgViewSet.as_view({'get': 'list'})),
+    path('test-icon/', TestIconViewSet.as_view({'get': 'list'})),
+    path('cheack-icon/', CheackIconViewSet.as_view({'get': 'list'})),
 
 
 ]

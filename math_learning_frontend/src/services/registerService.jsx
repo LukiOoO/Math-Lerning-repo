@@ -8,7 +8,7 @@ const registerUser = ({ user, setError, error, history }) => {
   })
     .then((res) => {
       if (res.status === 400) {
-        setError({ ...error, username: "The user already exists" });
+        setError({ ...error, username: "The user or emial already exists" });
         return;
       } else if (res.status !== 400) {
         history.push("/login");

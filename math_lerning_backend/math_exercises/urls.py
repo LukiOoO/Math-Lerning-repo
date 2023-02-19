@@ -2,11 +2,26 @@ from . import views
 from rest_framework.routers import SimpleRouter
 
 router = SimpleRouter()
-router.register('adding', views.AddingViewSet, basename='adding')
-router.register('subtraction', views.SubtractionViewSet,
-                basename='subtraction')
-router.register('multiplication', views.MultiplicationViewSet,
-                basename='multiplication')
-router.register('dividing', views.DividingViewSet, basename='dividing')
+router.register('es-adding', views.EasyAddingViewSet, basename='es-adding')
+router.register('es-subtraction', views.EasySubtractionViewSet,
+                basename='es-subtraction')
+router.register('es-multiplication', views.EasyMultiplicationViewSet,
+                basename='es-multiplication')
+router.register('es-dividing', views.EasyDividingViewSet,
+                basename='es-dividing')
+router.register('mid-adding', views.MediumAddingViewSet, basename='mid-adding')
+router.register('mid-subtraction', views.MediumSubtractionViewSet,
+                basename='mid-subtraction')
+router.register('mid-multiplication', views.MediumMultiplicationViewSet,
+                basename='mid-multiplication')
+router.register('mid-dividing', views.MediumDividingViewSet,
+                basename='mid-dividing')
+router.register('hard-adding', views.HardAddingViewSet, basename='mid-adding')
+router.register('hard-subtraction', views.HardSubtractionViewSet,
+                basename='hard-subtraction')
+router.register('hard-multiplication', views.HardMultiplicationViewSet,
+                basename='hard-multiplication')
+router.register('hard-dividing', views.HardDividingViewSet,
+                basename='hard-dividing')
 
 urlpatterns = router.urls

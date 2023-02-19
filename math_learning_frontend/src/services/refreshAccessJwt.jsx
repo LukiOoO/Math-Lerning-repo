@@ -22,7 +22,7 @@ const RefreshAccessToken = () => {
           })
           .catch((error) => {});
       }
-    }, 300000000);
+    }, 300000);
   }, []);
 
   return null;

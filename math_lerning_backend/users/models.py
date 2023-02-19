@@ -4,6 +4,7 @@ from django.contrib.auth.hashers import make_password
 from django.core.validators import MinValueValidator
 from django.contrib.auth.models import Group
 
+
 # from django.contrib.auth
 
 
@@ -71,6 +72,7 @@ class MathsiteUser(AbstractBaseUser):
             self.rating = self.Master
         else:
             self.rating = self.GrandMaster
+
         super().save(*args, **kwargs)
 
     class Meta:

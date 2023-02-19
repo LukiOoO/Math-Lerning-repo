@@ -1,5 +1,5 @@
 import React from "react";
-import CustomInput from "../common/customInpu";
+import CustomInput from "../common/customInput";
 
 const LoginForm = ({
   handleSubmit,

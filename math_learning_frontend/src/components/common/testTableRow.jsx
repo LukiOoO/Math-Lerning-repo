@@ -9,6 +9,7 @@ const TestTableRow = ({ test, index, inputValues, setInputValues }) => {
       <td>
         =
         <input
+          className="test-number-input"
           type="number"
           value={inputValues[index] || ""}
           onChange={(e) =>
