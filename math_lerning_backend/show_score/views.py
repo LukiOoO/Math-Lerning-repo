@@ -1,6 +1,6 @@
-from .serializers import ScoreSerializer
-from users.models import MathsiteUser
 from rest_framework.viewsets import ReadOnlyModelViewSet
+from users.models import MathsiteUser
+from .serializers import ScoreSerializer
 # Create your views here.
 
 

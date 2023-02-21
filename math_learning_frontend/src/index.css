@@ -134,7 +134,8 @@ a {
 .open-password-page,
 .es-btn,
 .mid-btn,
-.hard-btn {
+.hard-btn,
+.next-test-btn {
   background: linear-gradient(to right, #343a40, #6c757d);
   background-color: #343a40;
   color: #dee2e6;
@@ -157,6 +158,36 @@ a {
   width: 29px;
   height: 29px;
   background-image: url(http://127.0.0.1:8000/media/static/images/add-icon.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: rotate(0deg);
+}
+.es-btn span {
+  margin-right: 15px;
+  display: block;
+  width: 29px;
+  height: 29px;
+  background-image: url(http://127.0.0.1:8000/media/static/images/easy.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: rotate(0deg);
+}
+.mid-btn span {
+  margin-right: 15px;
+  display: block;
+  width: 29px;
+  height: 29px;
+  background-image: url(http://127.0.0.1:8000/media/static/images/advanced.png);
+  background-repeat: no-repeat;
+  background-size: contain;
+  transform: rotate(0deg);
+}
+.hard-btn span {
+  margin-right: 15px;
+  display: block;
+  width: 29px;
+  height: 29px;
+  background-image: url(http://127.0.0.1:8000/media/static/images/hard.png);
   background-repeat: no-repeat;
   background-size: contain;
   transform: rotate(0deg);
@@ -191,7 +222,8 @@ a {
   background-size: contain;
   transform: rotate(0deg);
 }
-.btn-next span {
+.btn-next span,
+.next-test-btn span {
   margin-right: 15px;
   display: block;
   width: 29px;
@@ -231,7 +263,8 @@ a {
 .open-password-page:hover,
 .es-btn:hover,
 .mid-btn:hover,
-.hard-btn:hover {
+.hard-btn:hover,
+.next-test-btn:hover {
   background: linear-gradient(to right, #5f6265, #82898f);
   background-color: #5f6265;
 }
@@ -245,7 +278,8 @@ a {
 .open-password-page:active,
 .es-btn:active,
 .mid-btn:active,
-.hard-btn:active {
+.hard-btn:active,
+.next-test-btn:active {
   transform: scale(0.95);
 }
 .ex-btn-container {
@@ -492,6 +526,10 @@ a {
   justify-content: center;
   font-weight: bolder;
 }
+.test-btn-container {
+  margin: 10px;
+}
+
 .test-result-container {
   font-size: 30px;
   display: flex;

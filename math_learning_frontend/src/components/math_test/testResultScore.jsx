@@ -1,3 +1,6 @@
+import MathSiteBtn from "../common/mathSiteBtn";
+import { Link } from "react-router-dom";
+
 const TestResultShowScore = (props) => {
   const { mistakes, correct } = props.location.state;
   return (
@@ -6,6 +9,15 @@ const TestResultShowScore = (props) => {
       <span className="correct"></span>
       <p>Mistakes answers: {mistakes}</p>
       <span className="mistakes"></span>
+
+      <Link to="/test-lvl">
+        <MathSiteBtn
+          type="button"
+          id=""
+          value="Next Test"
+          className="next-test-btn"
+        />
+      </Link>
     </div>
   );
 };

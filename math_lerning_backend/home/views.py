@@ -1,10 +1,7 @@
 from rest_framework.viewsets import ReadOnlyModelViewSet
-from django.conf.urls.static import static
 from django.shortcuts import render
 from . import models
 from . import serializers
-from rest_framework.decorators import api_view
-from django.http import FileResponse
 # Create your views here.
 
 
@@ -12,141 +9,96 @@ def custom_404(request, exception):
     return render(request, 'home/404.html')
 
 
-class HomePageViewSet(ReadOnlyModelViewSet):
+class BasePictureViewSet(ReadOnlyModelViewSet):
     serializer_class = serializers.PictrueSerializer
 
     def get_queryset(self):
-        return models.Pictures.objects.filter(id=1)
+        return self.model.objects.filter(id=self.id)
 
     def get_serializer_context(self):
         return {'request': self.request}
 
 
-class AddIconViewSet(ReadOnlyModelViewSet):
-    serializer_class = serializers.PictrueSerializer
-
-    def get_queryset(self):
-        return models.Pictures.objects.filter(id=2)
-
-    def get_serializer_context(self):
-        return {'request': self.request}
+class HomePageViewSet(BasePictureViewSet):
+    model = models.Pictures
+    id = 1
 
 
-class SubIconViewSet(ReadOnlyModelViewSet):
-    serializer_class = serializers.PictrueSerializer
-
-    def get_queryset(self):
-        return models.Pictures.objects.filter(id=3)
-
-    def get_serializer_context(self):
-        return {'request': self.request}
+class AddIconViewSet(BasePictureViewSet):
+    model = models.Pictures
+    id = 2
 
 
-class MulIconViewSet(ReadOnlyModelViewSet):
-    serializer_class = serializers.PictrueSerializer
-
-    def get_queryset(self):
-        return models.Pictures.objects.filter(id=4)
-
-    def get_serializer_context(self):
-        return {'request': self.request}
+class SubIconViewSet(BasePictureViewSet):
+    model = models.Pictures
+    id = 3
 
 
-class DivIconViewSet(ReadOnlyModelViewSet):
-    serializer_class = serializers.PictrueSerializer
-
-    def get_queryset(self):
-        return models.Pictures.objects.filter(id=5)
-
-    def get_serializer_context(self):
-        return {'request': self.request}
+class MulIconViewSet(BasePictureViewSet):
+    model = models.Pictures
+    id = 4
 
 
-class NextIconViewSet(ReadOnlyModelViewSet):
-    serializer_class = serializers.PictrueSerializer
-
-    def get_queryset(self):
-        return models.Pictures.objects.filter(id=6)
-
-    def get_serializer_context(self):
-        return {'request': self.request}
+class DivIconViewSet(BasePictureViewSet):
+    model = models.Pictures
+    id = 5
 
 
-class LoginIconViewSet(ReadOnlyModelViewSet):
-    serializer_class = serializers.PictrueSerializer
-
-    def get_queryset(self):
-        return models.Pictures.objects.filter(id=7)
-
-    def get_serializer_context(self):
-        return {'request': self.request}
+class NextIconViewSet(BasePictureViewSet):
+    model = models.Pictures
+    id = 6
 
 
-class PasswordIconViewSet(ReadOnlyModelViewSet):
-    serializer_class = serializers.PictrueSerializer
-
-    def get_queryset(self):
-        return models.Pictures.objects.filter(id=8)
-
-    def get_serializer_context(self):
-        return {'request': self.request}
+class LoginIconViewSet(BasePictureViewSet):
+    model = models.Pictures
+    id = 7
 
 
-class LoginBtnIconViewSet(ReadOnlyModelViewSet):
-    serializer_class = serializers.PictrueSerializer
-
-    def get_queryset(self):
-        return models.Pictures.objects.filter(id=9)
-
-    def get_serializer_context(self):
-        return {'request': self.request}
+class PasswordIconViewSet(BasePictureViewSet):
+    model = models.Pictures
+    id = 8
 
 
-class EmailIconViewSet(ReadOnlyModelViewSet):
-    serializer_class = serializers.PictrueSerializer
-
-    def get_queryset(self):
-        return models.Pictures.objects.filter(id=10)
-
-    def get_serializer_context(self):
-        return {'request': self.request}
+class LoginBtnIconViewSet(BasePictureViewSet):
+    model = models.Pictures
+    id = 9
 
 
-class BgImageViewSet(ReadOnlyModelViewSet):
-    serializer_class = serializers.PictrueSerializer
-
-    def get_queryset(self):
-        return models.Pictures.objects.filter(id=11)
-
-    def get_serializer_context(self):
-        return {'request': self.request}
+class EmailIconViewSet(BasePictureViewSet):
+    model = models.Pictures
+    id = 10
 
 
-class FormsBgViewSet(ReadOnlyModelViewSet):
-    serializer_class = serializers.PictrueSerializer
-
-    def get_queryset(self):
-        return models.Pictures.objects.filter(id=12)
-
-    def get_serializer_context(self):
-        return {'request': self.request}
+class BgImageViewSet(BasePictureViewSet):
+    model = models.Pictures
+    id = 11
 
 
-class TestIconViewSet(ReadOnlyModelViewSet):
-    serializer_class = serializers.PictrueSerializer
-
-    def get_queryset(self):
-        return models.Pictures.objects.filter(id=13)
-
-    def get_serializer_context(self):
-        return {'request': self.request}
+class FormsBgViewSet(BasePictureViewSet):
+    model = models.Pictures
+    id = 12
 
 
-class CheackIconViewSet(ReadOnlyModelViewSet):
-    serializer_class = serializers.PictrueSerializer
+class TestIconViewSet(BasePictureViewSet):
+    model = models.Pictures
+    id = 13
 
-    def get_queryset(self):
-        return models.Pictures.objects.filter(id=14)
 
-    def get_serializer_context(self):
-        return {'request': self.request}
+class CheackIconViewSet(BasePictureViewSet):
+    model = models.Pictures
+    id = 14
+
+
+class EasyIconViewSet(BasePictureViewSet):
+    model = models.Pictures
+    id = 15
+
+
+class MidIconViewSet(BasePictureViewSet):
+    model = models.Pictures
+    id = 16
+
+
+class HardIconViewSet(BasePictureViewSet):
+    model = models.Pictures
+    id = 17

@@ -4,12 +4,11 @@ from users.models import MathsiteUser
 from .serializers import MathUserSerializer
 from rest_framework.response import Response
 from rest_framework.decorators import action, permission_classes
-from .permission import IsProfileOwner
 from django.http import Http404
-from show_score.serializers import ScoreSerializer
-from .models import MathsiteUser
 from math_tests.models import TestModel
 from math_tests.serializers import MathTestSerializer
+from .models import MathsiteUser
+from .permission import IsProfileOwner
 
 
 # Create your views here.

@@ -14,7 +14,7 @@ from .serializers import MathTestSerializer
 
 
 class EasyMathTest(viewsets.ReadOnlyModelViewSet):
-    # permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated,)
 
     def list(self, request):
         try:
@@ -44,7 +44,7 @@ class EasyMathTest(viewsets.ReadOnlyModelViewSet):
 
 
 class AdvancedMathTest(viewsets.ReadOnlyModelViewSet):
-    # permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated,)
 
     def list(self, request):
         try:
@@ -74,7 +74,7 @@ class AdvancedMathTest(viewsets.ReadOnlyModelViewSet):
 
 
 class HardMathTest(viewsets.ReadOnlyModelViewSet):
-    # permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated,)
 
     def list(self, request):
         try:
@@ -105,7 +105,7 @@ class HardMathTest(viewsets.ReadOnlyModelViewSet):
 
 class TestResultView(CreateModelMixin, RetrieveModelMixin, UpdateModelMixin, GenericViewSet):
     serializer_class = MathTestSerializer
-    # permission_classes = (IsAuthenticated,)
+    permission_classes = (IsAuthenticated,)
 
     @action(detail=False, methods=['POST'])
     def save_result(self, request, format=None):
