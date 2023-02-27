@@ -42,7 +42,7 @@ const LoginForm = ({
         value="Login"
         onClick={validateForm}
         disabled={isFormValid}
-      ></CustomInput>
+      />
     </form>
   );
 };

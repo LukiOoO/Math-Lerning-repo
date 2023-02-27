@@ -1,22 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import MathSiteBtn from "../common/mathSiteBtn";
 import Table from "../common/testTable";
+import { useGetTest } from "../../services/getDataFromApi";
 
-const EasyUserTest = () => {
+const MakeTest = ({ testLvlApi, resultLogicPath, testLvl }) => {
   const [tests, setTests] = useState([]);
   const [inputValues, setInputValues] = useState({});
 
-  useEffect(() => {
-    fetch("http://127.0.0.1:8000/test/get-es-test/", {
-      headers: {
-        Authorization: "JWT " + localStorage.getItem("jwtToken"),
-      },
-    })
-      .then((response) => response.json())
-      .then((data) => setTests(data["Your Test"]))
-      .catch((error) => console.error(error));
-  }, []);
+  useGetTest({ testLvlApi, setTests });
 
   return (
     <React.Fragment>
@@ -30,8 +22,8 @@ const EasyUserTest = () => {
       <Link
         className="ex-link"
         to={{
-          pathname: "/tests/easy-test-result",
-          state: { inputValues, tests },
+          pathname: resultLogicPath,
+          state: { inputValues, tests, testLvl },
         }}
       >
         <div className="cheack-btn-container">
@@ -47,4 +39,4 @@ const EasyUserTest = () => {
   );
 };
 
-export default EasyUserTest;
+export default MakeTest;

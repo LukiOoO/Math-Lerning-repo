@@ -1,25 +1,12 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import NextBtn from "../common/nextBtn";
-import CustomInput from "../common/customInput";
+import React, { useState } from "react";
+import NextBtn from "./nextBtn";
+import CustomInput from "./customInput";
+import { useGetExercise } from "../../services/getDataFromApi";
 
 const GetEx = ({ sing, url }) => {
   const [data, setData] = useState([]);
   const [inputValue, setInputValue] = useState("");
   const [inputColor, setInputColor] = useState("");
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const result = await axios.get(url);
-        setData(result.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    fetchData();
-  }, [url]);
 
   const handleInputChange = (event) => {
     setInputValue(event.target.value);
@@ -29,6 +16,9 @@ const GetEx = ({ sing, url }) => {
       setInputColor("red");
     }
   };
+
+  useGetExercise({ url, setData });
+
   return (
     <React.Fragment>
       <div className="number-main-container">

@@ -1,28 +1,11 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { useGetUserData } from "../../services/getDataFromApi";
 
 const ShowLoggedUser = () => {
   const [data, setData] = useState();
   const [error] = useState();
 
-  useEffect(() => {
-    const fetchData = () => {
-      fetch("http://127.0.0.1:8000/mathuser/userdata/me/", {
-        headers: {
-          Authorization: "JWT " + localStorage.getItem("jwtToken"),
-        },
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          setData(data);
-        });
-    };
-
-    const intervalId = setInterval(fetchData, 1000);
-
-    return () => {
-      clearInterval(intervalId);
-    };
-  }, []);
+  useGetUserData({ setData });
 
   return (
     <div>

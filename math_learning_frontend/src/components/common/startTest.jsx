@@ -1,16 +1,13 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import { Link } from "react-router-dom";
-import MidUserTest from "./MiduserTest";
-import MidTestResultLogic from "./esTestResultLogic";
 import MathSiteBtn from "../common/mathSiteBtn";
-import TestResultShowScore from "./testResultScore";
 
-const MidTest = () => {
+const StartTets = ({ path, component, resultLogicPath, resutlLComponent }) => {
   return (
     <React.Fragment>
       <div className="test-btn-container">
-        <Link className="ex-link" to="/tests/yourtest/mid/make-test">
+        <Link className="ex-link" to={path}>
           <MathSiteBtn
             type="button"
             value="Make Test"
@@ -19,10 +16,11 @@ const MidTest = () => {
         </Link>
       </div>
       <Switch>
-        <Route path="/tests/yourtest/mid/make-test" component={MidUserTest} />
+        <Route path={path} component={component} />
+        <Route path={resultLogicPath} component={resutlLComponent} />
       </Switch>
     </React.Fragment>
   );
 };
 
-export default MidTest;
+export default StartTets;

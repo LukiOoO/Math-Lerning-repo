@@ -1,20 +1,11 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
+import React, { useState } from "react";
 import UserInList from "../common/userInList";
+import { useGetScore } from "./../../services/getDataFromApi";
 
 function Bestuserlist(props) {
   const [data, setData] = useState([]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const result = await axios.get("http://127.0.0.1:8000/score/");
-        setData(result.data);
-      } catch (error) {}
-    };
-
-    fetchData();
-  }, []);
+  useGetScore({ setData });
 
   return (
     <div className="best-users-list">

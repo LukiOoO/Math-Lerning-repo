@@ -1,8 +1,12 @@
 import React, { useState } from "react";
-import Joi from "joi-browser";
 import { useHistory } from "react-router-dom";
 import RegisterForm from "../common/registerForm";
-import registerUser from "../../services/registerService";
+import { registerUser } from "../../services/auth";
+import {
+  registerSchema,
+  validateForm,
+  handleChange,
+} from "../../services/validate";
 
 const Register = () => {
   const [error, setError] = useState({});
@@ -15,46 +19,24 @@ const Register = () => {
     confirmPassword: "",
     email: "",
   });
+  const schema = registerSchema;
 
-  const schema = {
-    nickname: Joi.string().required(),
-    email: Joi.string().email().required(),
-    password: Joi.string().required().min(5).label("Password"),
-    confirmPassword: Joi.any()
-      .valid(Joi.ref("password"))
-      .required()
-      .options({ language: { any: { allowOnly: "must match password" } } })
-      .label("confirm password"),
+  const validateRegisterForm = () => {
+    validateForm(user, setError, schema);
   };
 
-  const validateForm = () => {
-    const options = { abortEarly: false };
-    const result = Joi.validate(user, schema, options);
-
-    if (!result.error) return setError({});
-
-    const errors = {};
-    for (let item of result.error.details) {
-      if (user[item.path[0]] !== "") continue;
-      errors[item.path[0]] = item.message;
-    }
-    setError(errors);
-  };
-
-  const validateProperty = ({ name, value }) => {
-    const obj = { [name]: value };
-    const propertySchema = { [name]: schema[name] };
-    const result = Joi.validate(obj, propertySchema);
-    return result.error ? result.error.details[0].message : null;
-  };
-
-  const handleChange = (event) => {
-    const errorMessage = validateProperty(event.target);
-    if (errorMessage) {
-      setError({ ...error, [event.target.name]: errorMessage });
-    } else {
-      setError({ ...error, [event.target.name]: null });
-    }
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    handleChange(
+      name,
+      value,
+      schema,
+      user,
+      setUser,
+      error,
+      setError,
+      setIsFormValid
+    );
     if (event.target.name === "confirmPassword") {
       if (event.target.value !== user.password) {
         setError({ ...error, confirmPassword: '"Password" must match' });
@@ -63,8 +45,6 @@ const Register = () => {
         setIsFormValid(false);
       }
     }
-
-    setUser({ ...user, [event.target.name]: event.target.value });
   };
 
   const handleSubmit = (event) => {
@@ -76,12 +56,11 @@ const Register = () => {
     <RegisterForm
       error={error}
       user={user}
-      handleChange={handleChange}
+      handleChange={handleInputChange}
       handleSubmit={handleSubmit}
-      validateForm={validateForm}
+      validateForm={validateRegisterForm}
       isFormValid={isFormValid}
     />
   );
 };
-
 export default Register;

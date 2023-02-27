@@ -132,8 +132,8 @@ a {
 .make-test-btn,
 .cheack-btn,
 .open-password-page,
-.es-btn,
-.mid-btn,
+.easy-btn,
+.advanced-btn,
 .hard-btn,
 .next-test-btn {
   background: linear-gradient(to right, #343a40, #6c757d);
@@ -162,7 +162,7 @@ a {
   background-size: contain;
   transform: rotate(0deg);
 }
-.es-btn span {
+.easy-btn span {
   margin-right: 15px;
   display: block;
   width: 29px;
@@ -172,7 +172,7 @@ a {
   background-size: contain;
   transform: rotate(0deg);
 }
-.mid-btn span {
+.advanced-btn span {
   margin-right: 15px;
   display: block;
   width: 29px;
@@ -261,8 +261,8 @@ a {
 .make-test-btn:hover,
 .cheack-btn:hover,
 .open-password-page:hover,
-.es-btn:hover,
-.mid-btn:hover,
+.easy-btn:hover,
+.advanced-btn:hover,
 .hard-btn:hover,
 .next-test-btn:hover {
   background: linear-gradient(to right, #5f6265, #82898f);
@@ -276,8 +276,8 @@ a {
 .make-test-btn:active,
 .cheack-btn:active,
 .open-password-page:active,
-.es-btn:active,
-.mid-btn:active,
+.easy-btn:active,
+.advanced-btn:active,
 .hard-btn:active,
 .next-test-btn:active {
   transform: scale(0.95);
