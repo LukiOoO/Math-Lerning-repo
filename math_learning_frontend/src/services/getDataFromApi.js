@@ -51,25 +51,25 @@ export const useGetScore = ({ setData }) => {
   }, [setData]);
 };
 
-export const useGetUserData = ({ setData }) => {
+export const useGetUserData = ({ setData, history }) => {
   useEffect(() => {
-    const fetchData = () => {
-      fetch("http://127.0.0.1:8000/mathuser/userdata/me/", {
-        headers: {
-          Authorization: "JWT " + localStorage.getItem("jwtToken"),
-        },
+    fetch("http://127.0.0.1:8000/mathuser/userdata/me/", {
+      headers: {
+        Authorization: "JWT " + localStorage.getItem("jwtToken"),
+      },
+    })
+      .then((res) => {
+        if (res.status === 401) {
+          localStorage.removeItem("jwtToken");
+          localStorage.removeItem("jwtRefreshToken");
+          localStorage.removeItem("nickname");
+          history.go(0);
+        }
+        return res.json();
       })
-        .then((res) => res.json())
-        .then((data) => {
-          setData(data);
-        });
-    };
-
-    const intervalId = setInterval(fetchData, 1000);
-
-    return () => {
-      clearInterval(intervalId);
-    };
+      .then((data) => {
+        setData(data);
+      });
   }, [setData]);
 };
 

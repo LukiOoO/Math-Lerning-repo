@@ -112,52 +112,28 @@ export const userChangePasswordFetch = ({ newPassword, setError, error }) => {
     .catch((error) => {});
 };
 
-export const useRemoveOnCloseWindow = () => {
+export const useRefreshAccessToken = () => {
   useEffect(() => {
-    const removeToken = () => {
-      localStorage.removeItem("jwtToken");
-      localStorage.removeItem("nickname");
-      localStorage.removeItem("jwtRefreshToken");
-    };
-
-    window.addEventListener("beforeunload", removeToken);
-
-    return () => {
-      window.removeEventListener("beforeunload", removeToken);
-    };
+    setInterval(() => {
+      if (localStorage.getItem("jwtRefreshToken")) {
+        fetch("http://127.0.0.1:8000/auth/jwt/refresh", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            refresh: localStorage.getItem("jwtRefreshToken"),
+          }),
+        })
+          .then((res) => {
+            return res.json();
+          })
+          .then((data) => {
+            localStorage.setItem("jwtToken", data.access);
+            localStorage.setItem("jwtRefreshToken", data.refresh);
+          })
+          .catch((error) => {});
+      }
+    }, 900000);
   }, []);
 };
-
-export default useRemoveOnCloseWindow;
-
-// import { useEffect } from "react";
-
-// const RefreshAccessToken = () => {
-//   useEffect(() => {
-//     setInterval(() => {
-//       if (localStorage.getItem("jwtRefreshToken")) {
-//         fetch("http://127.0.0.1:8000/auth/jwt/refresh", {
-//           method: "POST",
-//           headers: {
-//             "Content-Type": "application/json",
-//           },
-//           body: JSON.stringify({
-//             refresh: localStorage.getItem("jwtRefreshToken"),
-//           }),
-//         })
-//           .then((res) => {
-//             return res.json();
-//           })
-//           .then((data) => {
-//             localStorage.setItem("jwtToken", data.access);
-//             localStorage.setItem("jwtRefreshToken", data.refresh);
-//           })
-//           .catch((error) => {});
-//       }
-//     }, 300000);
-//   }, []);
-
-//   return null;
-// };
-
-// export default RefreshAccessToken;

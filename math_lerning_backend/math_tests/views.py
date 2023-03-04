@@ -1,6 +1,7 @@
 from rest_framework.response import Response
 from math_exercises import views
 import random
+from rest_framework import status
 from django.http import HttpResponse
 from math_exercises import serializers
 from rest_framework import viewsets
@@ -113,4 +114,4 @@ class TestResultView(CreateModelMixin, RetrieveModelMixin, UpdateModelMixin, Gen
         serializer.is_valid(raise_exception=True)
         serializer.save()
 
-        return Response(serializer.data)
+        return Response(serializer.data, status=status.HTTP_201_CREATED)

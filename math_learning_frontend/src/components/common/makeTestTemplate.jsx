@@ -27,12 +27,7 @@ const MakeTest = ({ testLvlApi, resultLogicPath, testLvl }) => {
         }}
       >
         <div className="cheack-btn-container">
-          <MathSiteBtn
-            type="button"
-            onClick={() => window.location.reload(false)}
-            value="Cheack"
-            className="cheack-btn"
-          />
+          <MathSiteBtn type="button" value="Cheack" className="cheack-btn" />
         </div>
       </Link>
     </React.Fragment>

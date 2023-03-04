@@ -139,10 +139,6 @@ REST_FRAMEWORK = {
         'rest_framework_simplejwt.authentication.JWTAuthentication',
 
     ),
-
-
-
-
 }
 
 
@@ -158,8 +154,12 @@ DJOSER = {
 
 SIMPLE_JWT = {
     'AUTH_HEADER_TYPES': ('JWT',),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
-    'ROTATE_REFRESH_TOKENS': False,
+    "ACCESS_TOKEN_LIFETIME": timedelta(milliseconds=918000),
+    'REFRESH_TOKEN_LIFETIME': timedelta(milliseconds=918000),
+    "ROTATE_REFRESH_TOKENS": True,
+    "BLACKLIST_AFTER_ROTATION": True,
+
+
 }
 
 

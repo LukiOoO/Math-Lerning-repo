@@ -1,11 +1,13 @@
 import React, { useState } from "react";
 import { useGetUserData } from "../../services/getDataFromApi";
+import { useHistory } from "react-router-dom";
 
 const ShowLoggedUser = () => {
   const [data, setData] = useState();
   const [error] = useState();
+  const history = useHistory();
 
-  useGetUserData({ setData });
+  useGetUserData({ setData, history });
 
   return (
     <div>

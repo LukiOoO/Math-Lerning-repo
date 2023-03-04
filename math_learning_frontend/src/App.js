@@ -16,7 +16,7 @@ import StartEasyTest from "./components/math_test/startEsTest";
 import TestResultShowScore from "./components/math_test/testResultShowScore";
 import StartAdvancedTest from "./components/math_test/startAdvancedTest";
 import StartHardTest from "./components/math_test/startHardTest";
-import useRemoveOnCloseWindow from "./services/auth";
+import { useRefreshAccessToken } from "./services/auth";
 
 const App = () => {
   const [user, setUser] = useState(null);
@@ -29,7 +29,7 @@ const App = () => {
     } catch (ex) {}
   }, []);
 
-  useRemoveOnCloseWindow();
+  useRefreshAccessToken();
 
   return (
     <React.Fragment>

@@ -13,6 +13,7 @@ export const saveTestResult = ({ correct, mistakes }, history, data) => {
         pathname: "/tests/result-score",
         state: { correct, mistakes },
       });
+      history.go(0);
     })
     .catch((error) => {});
 };
