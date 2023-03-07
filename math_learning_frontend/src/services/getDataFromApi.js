@@ -70,7 +70,7 @@ export const useGetUserData = ({ setData, history }) => {
       .then((data) => {
         setData(data);
       });
-  }, [setData]);
+  }, [setData, history]);
 };
 
 export const useGetUserScore = ({ setLastTests }) => {
