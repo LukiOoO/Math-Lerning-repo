@@ -39,7 +39,11 @@ export const registerUser = ({ user, setError, error, history }) => {
   })
     .then((res) => {
       if (res.status === 400) {
-        setError({ ...error, username: "The user or emial already exists" });
+        setError({
+          ...error,
+          username:
+            "The user or emial already exists or the password is wrong ",
+        });
         return;
       } else if (res.status !== 400) {
         history.push("/login");
