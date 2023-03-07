@@ -49,6 +49,6 @@ python manage.py runserver
         Quit the server with CTRL-BREAK
 
 13. without closing the previously opened termianl, open a new terminal and go to the location of your LocalizationMath-Lerning-repo\math_learning_frontend>.  
-    make sure you haven't opened a terminal with pipenv enabled if you have, type deactivate And type npm and
+    make sure you haven't opened a terminal with pipenv enabled if you have, type deactivate And type npm i
 
 14. to start the server frontend type npm start and you should open a window with a properly working application
