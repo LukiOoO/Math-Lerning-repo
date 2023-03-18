@@ -9,6 +9,7 @@ const MathSiteBtn = ({ type, id, value, className, disabled, ...rest }) => {
         value={value}
         className={className}
         disabled={disabled}
+        {...rest}
       >
         <span> </span>
         {value}

@@ -1,19 +1,17 @@
 import { useEffect } from "react";
 import axios from "axios";
 
-export const useGetExercise = ({ url, setData }) => {
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const result = await axios.get(url);
-        setData(result.data);
-      } catch (error) {
-        console.error(error);
-      }
-    };
+export const getExercise = ({ url, setData }) => {
+  const fetchData = async () => {
+    try {
+      const result = await axios.get(url);
+      setData(result.data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
 
-    fetchData();
-  }, [setData, url]);
+  fetchData();
 };
 
 export const useGetTest = ({ testLvlApi, setTests }) => {

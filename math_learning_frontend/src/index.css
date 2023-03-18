@@ -3,7 +3,7 @@ body {
   color: #adb5bd;
   font-family: Arial, Helvetica, sans-serif;
   margin: 0;
-  background-image: url(http://127.0.0.1:8000/media/static/images/bg-image.jpg);
+  background-image: url(http://127.0.0.1:8000/media/static/images/bg-image.jpg?123321);
   background-size: cover;
   background-repeat: no-repeat;
 }

@@ -1,7 +1,7 @@
-import React, { useState } from "react";
-import NextBtn from "./nextBtn";
+import React, { useState, useEffect } from "react";
 import CustomInput from "./customInput";
-import { useGetExercise } from "../../services/getDataFromApi";
+import { getExercise } from "../../services/getDataFromApi";
+import MathSiteBtn from "./mathSiteBtn";
 
 const GetEx = ({ sing, url }) => {
   const [data, setData] = useState([]);
@@ -16,8 +16,17 @@ const GetEx = ({ sing, url }) => {
       setInputColor("red");
     }
   };
+  const firstEx = (setData, url) => {
+    getExercise({ url, setData });
+  };
 
-  useGetExercise({ url, setData });
+  useEffect(() => {
+    firstEx(setData, url);
+  }, [setData, url]);
+
+  const useHadnleClick = () => {
+    getExercise({ url, setData });
+  };
 
   return (
     <React.Fragment>
@@ -34,7 +43,13 @@ const GetEx = ({ sing, url }) => {
         onChange={handleInputChange}
       />
 
-      <NextBtn value="NEXT" id="next-btn" />
+      <MathSiteBtn
+        type="button"
+        className="btn-next"
+        value="NEXT"
+        id="next-btn"
+        onClick={useHadnleClick}
+      />
     </React.Fragment>
   );
 };
