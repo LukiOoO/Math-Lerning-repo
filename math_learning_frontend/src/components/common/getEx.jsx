@@ -26,6 +26,8 @@ const GetEx = ({ sing, url }) => {
 
   const useHadnleClick = () => {
     getExercise({ url, setData });
+    setInputValue("");
+    setInputColor();
   };
 
   return (
