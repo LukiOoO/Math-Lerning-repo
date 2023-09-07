@@ -58,3 +58,4 @@ class MathsiteUserAdmin(UserAdmin):
             f'{clear_user_score} user score is successfully clear',
             messages.SUCCESS
         )
+
