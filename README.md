@@ -65,7 +65,7 @@ After logging in/creating an account, the home page shows a box with the user's 
 
 ## Exercises
 The page contains options for doing math exercises addition subtraction division and multiplication at 3 levels of difficulty after entering the correct value the box is highlighted in green and otherwise the window is highlighted in red. After clicking next the next exercise is shown
-![/img/bad.PNG](./img/bad.PNG)
+![/img/bad.png](./img/bad.png)
 ![/img/correct.png](./img/correct.png)
 
 ## Login 
