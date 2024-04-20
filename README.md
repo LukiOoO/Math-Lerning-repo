@@ -4,7 +4,7 @@ Simple app for learning math using react and django rest api
 
 ## How to run
 
-1.  Install python 3.10 on your computer when installing, check add path to python
+1.  Install python 3.12 on your computer when installing, check add path to python
 
 2.  Install Node.js on Your Computer
 
