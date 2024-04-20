@@ -16,6 +16,7 @@ djangorestframework-jwt = "*"
 whitenoise = "*"
 waitress = "*"
 mixer = "*"
+django-cors-headers = "*"
 
 [dev-packages]
 pytest = "*"

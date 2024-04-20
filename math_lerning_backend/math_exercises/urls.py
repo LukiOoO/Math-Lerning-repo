@@ -16,7 +16,7 @@ router.register('mid-multiplication', views.MediumMultiplicationViewSet,
                 basename='mid-multiplication')
 router.register('mid-dividing', views.MediumDividingViewSet,
                 basename='mid-dividing')
-router.register('hard-adding', views.HardAddingViewSet, basename='mid-adding')
+router.register('hard-adding', views.HardAddingViewSet, basename='hard-adding')
 router.register('hard-subtraction', views.HardSubtractionViewSet,
                 basename='hard-subtraction')
 router.register('hard-multiplication', views.HardMultiplicationViewSet,

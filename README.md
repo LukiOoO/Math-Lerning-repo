@@ -52,3 +52,37 @@ python manage.py runserver
     make sure you haven't opened a terminal with pipenv enabled if you have, type deactivate And type npm i
 
 14. to start the server frontend type npm start and you should open a window with a properly working application
+
+# Detailed Description:
+
+## Home
+Site displays player ranking points are earned on tests 
+![/img/home-page.png](./img/home-page.png)
+### Home page after login
+
+After logging in/creating an account, the home page shows a box with the user's name points and rank. The rank system is also displayed
+![img/home-page-after-login.png](./img/home-page-after-login.png)
+
+## Exercises
+The page contains options for doing math exercises addition subtraction division and multiplication at 3 levels of difficulty after entering the correct value the box is highlighted in green and otherwise the window is highlighted in red. After clicking next the next exercise is shown
+![/img/bad.PNG](./img/bad.PNG)
+![/img/correct.png](./img/correct.png)
+
+## Login 
+Under the login tab, you can log in to the account you created 
+![/img/login.png](./img/login.png)
+
+## Register
+In the register tab you can create an account fields are covered by simple validation
+![/img/register.png)](./img/register.png)
+
+## Test
+Tests just like exercises are available in three different levels of difficulty the harder the level the more points the player gets. The test consists of 10 questions after the test displays the number of positive answers and errors
+![/img/start-test.png)](./img/start-test.png)
+![/img/test.png)](./img/test.png)
+![/img/test-finish.png)](./img/test-finish.png)
+
+## User profile
+The user profile tab shows the user's recent tests and gives the ability to change the account password
+![/img/user-profile.png)](./img/user-profile.png)
+![/img/password.png)](./img/password.png)
