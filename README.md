@@ -70,6 +70,7 @@ The page contains options for doing math exercises addition subtraction division
 
 ## Login 
 Under the login tab, you can log in to the account you created 
+
 ![/img/login.png](./img/login.png)
 
 ## Register
